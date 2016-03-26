@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<artifactId>pl.kubiczak.felix.shark.parent</artifactId>
+		<groupId>pl.kubiczak.felix.shark</groupId>
+		<version>1.1.0</version>
+	</parent>
+
+	<artifactId>pl.kubiczak.felix.shark.felix</artifactId>
+	<version>1.0.0-SNAPSHOT</version>
+	<packaging>pom</packaging>
+
+	<name>Shark: Felix</name>
+	<url>http://site.kubiczak.pl/${project.artifactId}</url>
+
+	<scm>
+		<connection>scm:git:https://github.com/wiiitek/${project.artifactId}.git</connection>
+		<developerConnection>scm:git:git@github.com:wiiitek/${project.artifactId}.git</developerConnection>
+		<tag>HEAD</tag>
+		<url>https://github.com/wiiitek/${project.artifactId}</url>
+	</scm>
+
+	<distributionManagement>
+		<repository>
+			<id>ftp.maven.kubiczak.pl</id>
+			<url>ftp://maven.kubiczak.pl</url>
+		</repository>
+		<site>
+			<id>ftp.site.kubiczak.pl</id>
+			<url>ftp://site.kubiczak.pl/${project.artifactId}</url>
+		</site>
+	</distributionManagement>
+
+	<properties>
+		<felix.filename>org.apache.felix.main.distribution-${version.felix}.zip</felix.filename>
+	</properties>
+
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>pl.kubiczak.felix.shark</groupId>
+				<artifactId>pl.kubiczak.felix.shark.dependencies</artifactId>
+				<version>1.0.0-SNAPSHOT</version>
+				<scope>import</scope>
+				<type>pom</type>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+
+	<build>
+		<extensions>
+			<extension>
+				<groupId>org.apache.maven.wagon</groupId>
+				<artifactId>wagon-ftp</artifactId>
+			</extension>
+		</extensions>
+
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-resources-plugin</artifactId>
+			</plugin>
+		</plugins>
+	</build>
+
+	<reporting>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-project-info-reports-plugin</artifactId>
+			</plugin>
+		</plugins>
+	</reporting>
+
+	<profiles>
+		<profile>
+			<id>download-felix-framework</id>
+			<activation>
+				<file>
+					<!--
+						if EL is used then property needs to be declared in current pom.xml
+						but we would rather have ${version.felix} defined in parent pom.xml
+						that's why we are using filename with hardcoded version here:
+					-->
+					<missing>${basedir}/org.apache.felix.main.distribution-5.4.0.zip</missing>
+				</file>
+			</activation>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.codehaus.mojo</groupId>
+						<artifactId>wagon-maven-plugin</artifactId>
+						<executions>
+							<execution>
+								<id>download-felix-framework</id>
+								<phase>initialize</phase>
+								<goals>
+									<goal>download-single</goal>
+								</goals>
+								<configuration>
+									<url>${felix.mirror}/felix</url>
+									<fromFile>${felix.filename}</fromFile>
+									<toDir>${project.basedir}</toDir>
+								</configuration>
+							</execution>
+						</executions>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+		<profile>
+			<id>unzip-felix-framework</id>
+			<activation>
+				<property>
+					<name>env.SHARK_HOME</name>
+				</property>
+			</activation>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.codehaus.mojo</groupId>
+						<artifactId>truezip-maven-plugin</artifactId>
+						<executions>
+							<execution>
+								<id>extract-felix-framework</id>
+								<phase>install</phase>
+								<goals>
+									<goal>copy</goal>
+								</goals>
+								<configuration>
+									<fileset>
+										<directory>
+											${project.basedir}/${felix.filename}/felix-framework-${version.felix}
+										</directory>
+										<outputDirectory>${env.SHARK_HOME}/${felix.dir}</outputDirectory>
+									</fileset>
+								</configuration>
+							</execution>
+						</executions>
+					</plugin>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-resources-plugin</artifactId>
+						<executions>
+							<execution>
+								<id>deploy-felix-start-scripts</id>
+								<phase>install</phase>
+								<goals>
+									<goal>copy-resources</goal>
+								</goals>
+								<configuration>
+									<outputDirectory>${env.SHARK_HOME}/${felix.dir}</outputDirectory>
+									<resources>
+										<resource>
+											<filtering>true</filtering>
+											<directory>src/main/resources</directory>
+											<includes>
+												<include>windows-start.bat</include>
+												<include>linux-start.sh</include>
+											</includes>
+										</resource>
+									</resources>
+								</configuration>
+							</execution>
+						</executions>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+	</profiles>
+</project>
