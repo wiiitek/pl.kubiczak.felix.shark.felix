@@ -49,6 +49,13 @@
 		</dependencies>
 	</dependencyManagement>
 
+	<repositories>
+		<repository>
+			<id>maven.kubiczak.pl</id>
+			<url>http://maven.kubiczak.pl</url>
+		</repository>
+	</repositories>
+
 	<build>
 		<extensions>
 			<extension>
