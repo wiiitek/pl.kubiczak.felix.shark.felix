@@ -140,9 +140,7 @@
 								</goals>
 								<configuration>
 									<fileset>
-										<directory>
-											${project.basedir}/${felix.filename}/felix-framework-${version.felix}
-										</directory>
+										<directory>${project.basedir}/${felix.filename}/felix-framework-${version.felix}</directory>
 										<outputDirectory>${env.SHARK_HOME}/${felix.dir}</outputDirectory>
 									</fileset>
 								</configuration>
