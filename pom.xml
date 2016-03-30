@@ -198,7 +198,28 @@
 									<artifactItems>
 										<artifactItem>
 											<groupId>org.apache.felix</groupId>
+											<artifactId>org.apache.felix.configadmin</artifactId>
+										</artifactItem>
+										<artifactItem>
+											<groupId>org.apache.felix</groupId>
+											<artifactId>org.apache.felix.eventadmin</artifactId>
+										</artifactItem>
+										<artifactItem>
+											<groupId>org.apache.felix</groupId>
 											<artifactId>org.apache.felix.fileinstall</artifactId>
+										</artifactItem>
+										<artifactItem>
+											<groupId>org.apache.felix</groupId>
+											<artifactId>org.apache.felix.http.servlet-api</artifactId>
+										</artifactItem>
+										<artifactItem>
+											<groupId>org.apache.felix</groupId>
+											<artifactId>org.apache.felix.http.jetty</artifactId>
+										</artifactItem>
+										<artifactItem>
+											<groupId>org.apache.felix</groupId>
+											<artifactId>org.apache.felix.webconsole</artifactId>
+											<classifier>all</classifier>
 										</artifactItem>
 									</artifactItems>
 									<outputDirectory>${env.SHARK_HOME}/${felix.dir}/${bundles.deploy.dir}</outputDirectory>
