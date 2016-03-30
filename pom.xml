@@ -145,23 +145,34 @@
 						<artifactId>maven-resources-plugin</artifactId>
 						<executions>
 							<execution>
-								<id>deploy-felix-start-scripts</id>
+								<id>backup-felix-config-properties</id>
 								<phase>install</phase>
 								<goals>
 									<goal>copy-resources</goal>
 								</goals>
 								<configuration>
-									<outputDirectory>${env.SHARK_HOME}/${felix.dir}</outputDirectory>
+									<resources>
+										<resource>
+											<directory>${env.SHARK_HOME}/${felix.dir}/conf</directory>
+										</resource>
+									</resources>
+									<outputDirectory>${env.SHARK_HOME}/${felix.dir}/conf.bak</outputDirectory>
+								</configuration>
+							</execution>
+							<execution>
+								<id>deploy-felix-start-scripts-and-config</id>
+								<phase>install</phase>
+								<goals>
+									<goal>copy-resources</goal>
+								</goals>
+								<configuration>
 									<resources>
 										<resource>
 											<filtering>true</filtering>
 											<directory>src/main/resources</directory>
-											<includes>
-												<include>windows-start.bat</include>
-												<include>linux-start.sh</include>
-											</includes>
 										</resource>
 									</resources>
+									<outputDirectory>${env.SHARK_HOME}/${felix.dir}</outputDirectory>
 								</configuration>
 							</execution>
 						</executions>
