@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
 	<parent>
@@ -44,7 +45,7 @@
 			<dependency>
 				<groupId>pl.kubiczak.felix.shark</groupId>
 				<artifactId>pl.kubiczak.felix.shark.dependencies</artifactId>
-				<version>1.1.0</version>
+				<version>1.2.0-SNAPSHOT</version>
 				<type>pom</type>
 				<scope>import</scope>
 			</dependency>
@@ -152,7 +153,9 @@
 								</goals>
 								<configuration>
 									<fileset>
-										<directory>${project.basedir}/${felix.filename}/felix-framework-${version.felix}</directory>
+										<directory>
+											${project.basedir}/${felix.filename}/felix-framework-${version.felix}
+										</directory>
 										<outputDirectory>${env.SHARK_HOME}/${felix.dir}</outputDirectory>
 									</fileset>
 								</configuration>
@@ -208,7 +211,9 @@
 											</includes>
 										</resource>
 									</resources>
-									<outputDirectory>${env.SHARK_HOME}/${felix.dir}/${bundles.deploy.dir}</outputDirectory>
+									<outputDirectory>
+										${env.SHARK_HOME}/${felix.dir}/${bundles.deploy.dir}
+									</outputDirectory>
 								</configuration>
 							</execution>
 						</executions>
@@ -237,6 +242,7 @@
 											<groupId>org.apache.felix</groupId>
 											<artifactId>org.apache.felix.fileinstall</artifactId>
 										</artifactItem>
+										<!-- HTTP service and Webconsole -->
 										<artifactItem>
 											<groupId>org.apache.felix</groupId>
 											<artifactId>org.apache.felix.http.servlet-api</artifactId>
@@ -251,7 +257,9 @@
 											<classifier>all</classifier>
 										</artifactItem>
 									</artifactItems>
-									<outputDirectory>${env.SHARK_HOME}/${felix.dir}/${bundles.deploy.dir}</outputDirectory>
+									<outputDirectory>
+										${env.SHARK_HOME}/${felix.dir}/${bundles.deploy.dir}
+									</outputDirectory>
 									<prependGroupId>true</prependGroupId>
 								</configuration>
 							</execution>
