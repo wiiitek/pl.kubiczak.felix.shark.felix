@@ -66,7 +66,7 @@
 				<artifactId>wagon-ftp</artifactId>
 			</extension>
 		</extensions>
-		<finalName>${project.groupId}-${project.artifactId}-${project.version}</finalName>
+		<finalName>org.apache.felix.org.apache.felix.webconsole-shark.felix.branding-${project.version}</finalName>
 
 		<plugins>
 			<plugin>
@@ -81,6 +81,8 @@
 					<instructions>
 						<Fragment-Host>org.apache.felix.webconsole</Fragment-Host>
 						<Export-Package>!*</Export-Package>
+						<Bundle-Name>Shark: Webconsole branding</Bundle-Name>
+						<Bundle-SymbolicName>pl.kubiczak.felix.shark.felix.branding</Bundle-SymbolicName>
 					</instructions>
 				</configuration>
 			</plugin>
@@ -223,7 +225,7 @@
 						<artifactId>maven-dependency-plugin</artifactId>
 						<executions>
 							<execution>
-								<id>download-felix-addons</id>
+								<id>download-felix-base-bundles</id>
 								<phase>install</phase>
 								<goals>
 									<goal>copy</goal>
@@ -242,7 +244,7 @@
 											<groupId>org.apache.felix</groupId>
 											<artifactId>org.apache.felix.fileinstall</artifactId>
 										</artifactItem>
-										<!-- HTTP service and Webconsole -->
+										<!-- HTTP -->
 										<artifactItem>
 											<groupId>org.apache.felix</groupId>
 											<artifactId>org.apache.felix.http.servlet-api</artifactId>
@@ -251,6 +253,7 @@
 											<groupId>org.apache.felix</groupId>
 											<artifactId>org.apache.felix.http.jetty</artifactId>
 										</artifactItem>
+										<!-- Webconsole -->
 										<artifactItem>
 											<groupId>org.apache.felix</groupId>
 											<artifactId>org.apache.felix.webconsole</artifactId>
