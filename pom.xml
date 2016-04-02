@@ -83,7 +83,7 @@
 						<Fragment-Host>org.apache.felix.webconsole</Fragment-Host>
 						<Export-Package>!*</Export-Package>
 						<Bundle-Name>Shark: Webconsole branding</Bundle-Name>
-						<Bundle-SymbolicName>pl.kubiczak.felix.shark.felix.branding</Bundle-SymbolicName>
+						<Bundle-SymbolicName>pl.kubiczak.felix.shark.felix.webconsole.branding</Bundle-SymbolicName>
 					</instructions>
 				</configuration>
 			</plugin>
