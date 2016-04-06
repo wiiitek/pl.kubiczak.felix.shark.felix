@@ -10,7 +10,7 @@
 	</parent>
 
 	<artifactId>pl.kubiczak.felix.shark.felix</artifactId>
-	<version>1.3.0-SNAPSHOT</version>
+	<version>1.3-SNAPSHOT</version>
 	<packaging>bundle</packaging>
 
 	<name>Shark: Felix</name>
