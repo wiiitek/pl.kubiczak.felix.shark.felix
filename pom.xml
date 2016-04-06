@@ -45,7 +45,7 @@
 			<dependency>
 				<groupId>pl.kubiczak.felix.shark</groupId>
 				<artifactId>pl.kubiczak.felix.shark.dependencies</artifactId>
-				<version>1.2.0</version>
+				<version>1.3</version>
 				<type>pom</type>
 				<scope>import</scope>
 			</dependency>
@@ -259,6 +259,11 @@
 											<artifactId>org.apache.felix.webconsole</artifactId>
 											<classifier>all</classifier>
 										</artifactItem>
+										<!-- Declarative Services (SCR) -->
+										<artifactId>
+											<groupId>org.apache.felix</groupId>
+											<artifactId>org.apache.felix.scr</artifactId>
+										</artifactId>
 									</artifactItems>
 									<outputDirectory>
 										${env.SHARK_HOME}/${felix.dir}/${bundles.deploy.dir}
