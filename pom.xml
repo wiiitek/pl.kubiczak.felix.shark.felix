@@ -277,6 +277,20 @@
 											<artifactId>org.apache.felix.dependencymanager</artifactId>
 										</artifactId>
 
+										<!-- Aries Blueprint -->
+										<artifactId>
+											<groupId>org.apache.aries.blueprint</groupId>
+											<artifactId>org.apache.aries.blueprint</artifactId>
+										</artifactId>
+										<artifactId>
+											<groupId>org.apache.aries.proxy</groupId>
+											<artifactId>org.apache.aries.proxy</artifactId>
+										</artifactId>
+										<artifactId>
+											<groupId>org.apache.aries</groupId>
+											<artifactId>org.apache.aries.util</artifactId>
+										</artifactId>
+
 										<!-- commons -->
 										<artifactId>
 											<groupId>org.apache.commons</groupId>
