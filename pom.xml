@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
 	<parent>
@@ -36,6 +37,8 @@
 
 	<properties>
 		<felix.filename>org.apache.felix.main.distribution-${version.felix}.zip</felix.filename>
+
+		<amdatu.repository>http://repository.amdatu.org/release</amdatu.repository>
 
 		<bundles.deploy.dir>bundle</bundles.deploy.dir>
 	</properties>
@@ -135,7 +138,7 @@
 			</build>
 		</profile>
 		<profile>
-			<id>unzip-felix-framework</id>
+			<id>extract-felix-framework-and-download-bundles</id>
 			<activation>
 				<property>
 					<name>env.SHARK_HOME</name>
@@ -284,6 +287,36 @@
 										${env.SHARK_HOME}/${felix.dir}/${bundles.deploy.dir}
 									</outputDirectory>
 									<prependGroupId>true</prependGroupId>
+								</configuration>
+							</execution>
+						</executions>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+		<profile>
+			<id>download-amdatu-bundles</id>
+			<activation>
+				<property>
+					<name>env.SHARK_HOME</name>
+				</property>
+			</activation>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.codehaus.mojo</groupId>
+						<artifactId>wagon-maven-plugin</artifactId>
+						<executions>
+							<execution>
+								<id>download-resourcehandler</id>
+								<phase>initialize</phase>
+								<goals>
+									<goal>download-single</goal>
+								</goals>
+								<configuration>
+									<url>${amdatu.repository}/org.amdatu.web.resourcehandler</url>
+									<fromFile>org.amdatu.web.resourcehandler-1.0.9.jar</fromFile>
+									<toDir>${env.SHARK_HOME}/${felix.dir}/${bundles.deploy.dir}</toDir>
 								</configuration>
 							</execution>
 						</executions>
