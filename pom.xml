@@ -6,7 +6,7 @@
 	<parent>
 		<artifactId>pl.kubiczak.felix.shark.parent</artifactId>
 		<groupId>pl.kubiczak.felix.shark</groupId>
-		<version>1.2.0</version>
+		<version>1.4</version>
 		<relativePath>../pl.kubiczak.felix.shark.parent/pom.xml</relativePath>
 	</parent>
 
@@ -48,7 +48,7 @@
 			<dependency>
 				<groupId>pl.kubiczak.felix.shark</groupId>
 				<artifactId>pl.kubiczak.felix.shark.dependencies</artifactId>
-				<version>1.4-SNAPSHOT</version>
+				<version>1.4</version>
 				<type>pom</type>
 				<scope>import</scope>
 			</dependency>
