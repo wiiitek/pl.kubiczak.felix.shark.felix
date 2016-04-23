@@ -264,6 +264,15 @@
 											<groupId>org.apache.felix</groupId>
 											<artifactId>org.apache.felix.scr</artifactId>
 										</artifactId>
+										<!-- Dependency Management -->
+										<artifactId>
+											<groupId>org.apache.felix</groupId>
+											<artifactId>org.apache.felix.metatype</artifactId>
+										</artifactId>
+										<artifactId>
+											<groupId>org.apache.felix</groupId>
+											<artifactId>org.apache.felix.dependencymanager</artifactId>
+										</artifactId>
 
 										<!-- commons -->
 										<artifactId>
