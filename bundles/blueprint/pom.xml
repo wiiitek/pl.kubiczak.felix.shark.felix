@@ -16,6 +16,9 @@
 	<name>Shark: Felix: Bundles: Blueprint</name>
 	<url>http://site.kubiczak.pl/${project.artifactId}</url>
 
+	<properties>
+		<bundles.deploy.dir>load/level-10-ioc</bundles.deploy.dir>
+	</properties>
 
 	<profiles>
 		<profile>
