@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+		 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<artifactId>pl.kubiczak.felix.shark.felix.bundles</artifactId>
+		<groupId>pl.kubiczak.felix.shark</groupId>
+		<version>1.5-SNAPSHOT</version>
+	</parent>
+
+	<artifactId>pl.kubiczak.felix.shark.felix.bundles.http</artifactId>
+	<packaging>pom</packaging>
+
+	<name>Shark: Felix: Bundles: HTTP</name>
+	<url>http://site.kubiczak.pl/${project.artifactId}</url>
+
+	<profiles>
+		<profile>
+			<id>deploy-http-bundles</id>
+			<activation>
+				<property>
+					<name>env.SHARK_HOME</name>
+				</property>
+			</activation>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-dependency-plugin</artifactId>
+						<executions>
+							<execution>
+								<phase>install</phase>
+								<goals>
+									<goal>copy</goal>
+								</goals>
+								<configuration>
+									<artifactItems>
+										<artifactItem>
+											<groupId>org.apache.felix</groupId>
+											<artifactId>org.apache.felix.http.servlet-api</artifactId>
+										</artifactItem>
+										<artifactItem>
+											<groupId>org.apache.felix</groupId>
+											<artifactId>org.apache.felix.http.jetty</artifactId>
+										</artifactItem>
+
+									</artifactItems>
+									<outputDirectory>
+										${env.SHARK_HOME}/${felix.dir}/${bundles.deploy.dir}
+									</outputDirectory>
+									<prependGroupId>true</prependGroupId>
+								</configuration>
+							</execution>
+						</executions>
+					</plugin>
+					<plugin>
+						<groupId>org.codehaus.mojo</groupId>
+						<artifactId>wagon-maven-plugin</artifactId>
+						<executions>
+							<execution>
+								<id>download-resourcehandler</id>
+								<phase>initialize</phase>
+								<goals>
+									<goal>download-single</goal>
+								</goals>
+								<configuration>
+									<url>${amdatu.repository}/org.amdatu.web.resourcehandler</url>
+									<fromFile>org.amdatu.web.resourcehandler-1.0.9.jar</fromFile>
+									<toDir>${env.SHARK_HOME}/${felix.dir}/${bundles.deploy.dir}</toDir>
+								</configuration>
+							</execution>
+						</executions>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+	</profiles>
+</project>

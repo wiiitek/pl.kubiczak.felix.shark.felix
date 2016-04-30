@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+		 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<artifactId>pl.kubiczak.felix.shark.felix.bundles</artifactId>
+		<groupId>pl.kubiczak.felix.shark</groupId>
+		<version>1.5-SNAPSHOT</version>
+	</parent>
+
+	<artifactId>pl.kubiczak.felix.shark.felix.bundles.osgi</artifactId>
+	<packaging>pom</packaging>
+
+	<name>Shark: Felix: Bundles: OSGI</name>
+	<url>http://site.kubiczak.pl/${project.artifactId}</url>
+
+
+	<profiles>
+		<profile>
+			<id>deploy-osgi-bundles</id>
+			<activation>
+				<property>
+					<name>env.SHARK_HOME</name>
+				</property>
+			</activation>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-dependency-plugin</artifactId>
+						<executions>
+							<execution>
+								<phase>install</phase>
+								<goals>
+									<goal>copy</goal>
+								</goals>
+								<configuration>
+									<artifactItems>
+										<!-- Declarative Services (SCR) -->
+										<artifactId>
+											<groupId>org.apache.felix</groupId>
+											<artifactId>org.apache.felix.scr</artifactId>
+										</artifactId>
+										<!-- Dependency Management -->
+										<artifactId>
+											<groupId>org.apache.felix</groupId>
+											<artifactId>org.apache.felix.metatype</artifactId>
+										</artifactId>
+										<artifactId>
+											<groupId>org.apache.felix</groupId>
+											<artifactId>org.apache.felix.dependencymanager</artifactId>
+										</artifactId>
+									</artifactItems>
+									<outputDirectory>
+										${env.SHARK_HOME}/${felix.dir}/${bundles.deploy.dir}
+									</outputDirectory>
+									<prependGroupId>true</prependGroupId>
+								</configuration>
+							</execution>
+						</executions>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+	</profiles>
+
+</project>

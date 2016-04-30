@@ -11,10 +11,15 @@
 
 	<artifactId>pl.kubiczak.felix.shark.felix</artifactId>
 	<version>1.5-SNAPSHOT</version>
-	<packaging>bundle</packaging>
+	<packaging>pom</packaging>
 
 	<name>Shark: Felix</name>
 	<url>http://site.kubiczak.pl/${project.artifactId}</url>
+
+	<modules>
+		<module>framework</module>
+		<module>bundles</module>
+	</modules>
 
 	<scm>
 		<connection>scm:git:https://github.com/wiiitek/${project.artifactId}.git</connection>
@@ -35,8 +40,6 @@
 	</distributionManagement>
 
 	<properties>
-		<felix.filename>org.apache.felix.main.distribution-${version.felix}.zip</felix.filename>
-
 		<amdatu.repository>http://repository.amdatu.org/release</amdatu.repository>
 
 		<bundles.deploy.dir>bundle</bundles.deploy.dir>
@@ -47,7 +50,7 @@
 			<dependency>
 				<groupId>pl.kubiczak.felix.shark</groupId>
 				<artifactId>pl.kubiczak.felix.shark.dependencies</artifactId>
-				<version>1.4</version>
+				<version>1.5-SNAPSHOT</version>
 				<type>pom</type>
 				<scope>import</scope>
 			</dependency>
@@ -68,25 +71,11 @@
 				<artifactId>wagon-ftp</artifactId>
 			</extension>
 		</extensions>
-		<finalName>org.apache.felix.org.apache.felix.webconsole-shark.felix.branding-${project.version}</finalName>
 
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-resources-plugin</artifactId>
-			</plugin>
-			<plugin>
-				<groupId>org.apache.felix</groupId>
-				<artifactId>maven-bundle-plugin</artifactId>
-				<extensions>true</extensions>
-				<configuration>
-					<instructions>
-						<Fragment-Host>org.apache.felix.webconsole</Fragment-Host>
-						<Export-Package>!*</Export-Package>
-						<Bundle-Name>Shark: Webconsole branding</Bundle-Name>
-						<Bundle-SymbolicName>pl.kubiczak.felix.shark.felix.webconsole.branding</Bundle-SymbolicName>
-					</instructions>
-				</configuration>
 			</plugin>
 		</plugins>
 	</build>
@@ -101,212 +90,7 @@
 	</reporting>
 
 	<profiles>
-		<profile>
-			<id>download-felix-framework</id>
-			<activation>
-				<file>
-					<!--
-						if EL is used then property needs to be declared in current pom.xml
-						but we would rather have ${version.felix} defined in parent pom.xml
-						that's why we are using filename with hardcoded version here:
-					-->
-					<missing>${basedir}/org.apache.felix.main.distribution-5.4.0.zip</missing>
-				</file>
-			</activation>
-			<build>
-				<plugins>
-					<plugin>
-						<groupId>org.codehaus.mojo</groupId>
-						<artifactId>wagon-maven-plugin</artifactId>
-						<executions>
-							<execution>
-								<id>download-felix-framework</id>
-								<phase>initialize</phase>
-								<goals>
-									<goal>download-single</goal>
-								</goals>
-								<configuration>
-									<url>${felix.mirror}/felix</url>
-									<fromFile>${felix.filename}</fromFile>
-									<toDir>${project.basedir}</toDir>
-								</configuration>
-							</execution>
-						</executions>
-					</plugin>
-				</plugins>
-			</build>
-		</profile>
-		<profile>
-			<id>extract-felix-framework-and-download-bundles</id>
-			<activation>
-				<property>
-					<name>env.SHARK_HOME</name>
-				</property>
-			</activation>
-			<build>
-				<plugins>
-					<plugin>
-						<groupId>org.codehaus.mojo</groupId>
-						<artifactId>truezip-maven-plugin</artifactId>
-						<executions>
-							<execution>
-								<id>extract-felix-framework</id>
-								<phase>install</phase>
-								<goals>
-									<goal>copy</goal>
-								</goals>
-								<configuration>
-									<fileset>
-										<directory>
-											${project.basedir}/${felix.filename}/felix-framework-${version.felix}
-										</directory>
-										<outputDirectory>${env.SHARK_HOME}/${felix.dir}</outputDirectory>
-									</fileset>
-								</configuration>
-							</execution>
-						</executions>
-					</plugin>
-					<plugin>
-						<groupId>org.apache.maven.plugins</groupId>
-						<artifactId>maven-resources-plugin</artifactId>
-						<executions>
-							<execution>
-								<id>backup-felix-config-properties</id>
-								<phase>install</phase>
-								<goals>
-									<goal>copy-resources</goal>
-								</goals>
-								<configuration>
-									<resources>
-										<resource>
-											<directory>${env.SHARK_HOME}/${felix.dir}/conf</directory>
-										</resource>
-									</resources>
-									<outputDirectory>${env.SHARK_HOME}/${felix.dir}/conf.bak</outputDirectory>
-								</configuration>
-							</execution>
-							<execution>
-								<id>deploy-felix-start-scripts-and-config</id>
-								<phase>install</phase>
-								<goals>
-									<goal>copy-resources</goal>
-								</goals>
-								<configuration>
-									<resources>
-										<resource>
-											<directory>src/main/felix-framework</directory>
-										</resource>
-									</resources>
-									<outputDirectory>${env.SHARK_HOME}/${felix.dir}</outputDirectory>
-								</configuration>
-							</execution>
-							<execution>
-								<id>copy-webconsole-branding-to-felix</id>
-								<phase>install</phase>
-								<goals>
-									<goal>copy-resources</goal>
-								</goals>
-								<configuration>
-									<resources>
-										<resource>
-											<directory>${project.build.directory}</directory>
-											<includes>
-												<include>*.jar</include>
-											</includes>
-										</resource>
-									</resources>
-									<outputDirectory>
-										${env.SHARK_HOME}/${felix.dir}/${bundles.deploy.dir}
-									</outputDirectory>
-								</configuration>
-							</execution>
-						</executions>
-					</plugin>
-					<plugin>
-						<groupId>org.apache.maven.plugins</groupId>
-						<artifactId>maven-dependency-plugin</artifactId>
-						<executions>
-							<execution>
-								<id>download-felix-base-bundles</id>
-								<phase>install</phase>
-								<goals>
-									<goal>copy</goal>
-								</goals>
-								<configuration>
-									<artifactItems>
-										<artifactItem>
-											<groupId>org.apache.felix</groupId>
-											<artifactId>org.apache.felix.configadmin</artifactId>
-										</artifactItem>
-										<artifactItem>
-											<groupId>org.apache.felix</groupId>
-											<artifactId>org.apache.felix.eventadmin</artifactId>
-										</artifactItem>
-										<artifactItem>
-											<groupId>org.apache.felix</groupId>
-											<artifactId>org.apache.felix.fileinstall</artifactId>
-										</artifactItem>
-										<!-- HTTP -->
-										<artifactItem>
-											<groupId>org.apache.felix</groupId>
-											<artifactId>org.apache.felix.http.servlet-api</artifactId>
-										</artifactItem>
-										<artifactItem>
-											<groupId>org.apache.felix</groupId>
-											<artifactId>org.apache.felix.http.jetty</artifactId>
-										</artifactItem>
-										<!-- Webconsole -->
-										<artifactItem>
-											<groupId>org.apache.felix</groupId>
-											<artifactId>org.apache.felix.webconsole</artifactId>
-											<classifier>all</classifier>
-										</artifactItem>
-										<!-- Declarative Services (SCR) -->
-										<artifactId>
-											<groupId>org.apache.felix</groupId>
-											<artifactId>org.apache.felix.scr</artifactId>
-										</artifactId>
-										<!-- Dependency Management -->
-										<artifactId>
-											<groupId>org.apache.felix</groupId>
-											<artifactId>org.apache.felix.metatype</artifactId>
-										</artifactId>
-										<artifactId>
-											<groupId>org.apache.felix</groupId>
-											<artifactId>org.apache.felix.dependencymanager</artifactId>
-										</artifactId>
 
-										<!-- Aries Blueprint -->
-										<artifactId>
-											<groupId>org.apache.aries.blueprint</groupId>
-											<artifactId>org.apache.aries.blueprint</artifactId>
-										</artifactId>
-										<artifactId>
-											<groupId>org.apache.aries.proxy</groupId>
-											<artifactId>org.apache.aries.proxy</artifactId>
-										</artifactId>
-										<artifactId>
-											<groupId>org.apache.aries</groupId>
-											<artifactId>org.apache.aries.util</artifactId>
-										</artifactId>
-
-										<!-- commons -->
-										<artifactId>
-											<groupId>org.apache.commons</groupId>
-											<artifactId>commons-lang3</artifactId>
-										</artifactId>
-									</artifactItems>
-									<outputDirectory>
-										${env.SHARK_HOME}/${felix.dir}/${bundles.deploy.dir}
-									</outputDirectory>
-									<prependGroupId>true</prependGroupId>
-								</configuration>
-							</execution>
-						</executions>
-					</plugin>
-				</plugins>
-			</build>
-		</profile>
 		<profile>
 			<id>download-amdatu-bundles</id>
 			<activation>
@@ -316,24 +100,7 @@
 			</activation>
 			<build>
 				<plugins>
-					<plugin>
-						<groupId>org.codehaus.mojo</groupId>
-						<artifactId>wagon-maven-plugin</artifactId>
-						<executions>
-							<execution>
-								<id>download-resourcehandler</id>
-								<phase>initialize</phase>
-								<goals>
-									<goal>download-single</goal>
-								</goals>
-								<configuration>
-									<url>${amdatu.repository}/org.amdatu.web.resourcehandler</url>
-									<fromFile>org.amdatu.web.resourcehandler-1.0.9.jar</fromFile>
-									<toDir>${env.SHARK_HOME}/${felix.dir}/${bundles.deploy.dir}</toDir>
-								</configuration>
-							</execution>
-						</executions>
-					</plugin>
+
 				</plugins>
 			</build>
 		</profile>

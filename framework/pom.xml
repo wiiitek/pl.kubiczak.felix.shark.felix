@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+		 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<artifactId>pl.kubiczak.felix.shark.felix</artifactId>
+		<groupId>pl.kubiczak.felix.shark</groupId>
+		<version>1.5-SNAPSHOT</version>
+	</parent>
+
+	<artifactId>pl.kubiczak.felix.shark.felix.framework</artifactId>
+	<packaging>pom</packaging>
+
+	<name>Shark: Felix: Framework</name>
+	<url>http://site.kubiczak.pl/${project.artifactId}</url>
+
+	<properties>
+		<felix.filename>org.apache.felix.main.distribution-${version.felix}.zip</felix.filename>
+	</properties>
+
+	<build>
+		<plugins>
+			<!-- do NOT generate sites for sub-modules -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-site-plugin</artifactId>
+				<configuration>
+					<skip>true</skip>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
+	<profiles>
+		<profile>
+			<id>download-felix-framework</id>
+			<activation>
+				<file>
+					<!--
+						if EL is used then property needs to be declared in current pom.xml
+						but we would rather have ${version.felix} defined in parent pom.xml
+						that's why we are using filename with hardcoded version here:
+					-->
+					<missing>${basedir}/org.apache.felix.main.distribution-5.4.0.zip</missing>
+				</file>
+			</activation>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.codehaus.mojo</groupId>
+						<artifactId>wagon-maven-plugin</artifactId>
+						<executions>
+							<execution>
+								<phase>initialize</phase>
+								<goals>
+									<goal>download-single</goal>
+								</goals>
+								<configuration>
+									<url>${felix.mirror}/felix</url>
+									<fromFile>${felix.filename}</fromFile>
+									<toDir>${project.basedir}</toDir>
+								</configuration>
+							</execution>
+						</executions>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+		<profile>
+			<id>extract-felix-framework</id>
+			<activation>
+				<property>
+					<name>env.SHARK_HOME</name>
+				</property>
+			</activation>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.codehaus.mojo</groupId>
+						<artifactId>truezip-maven-plugin</artifactId>
+						<executions>
+							<execution>
+								<phase>install</phase>
+								<goals>
+									<goal>copy</goal>
+								</goals>
+								<configuration>
+									<fileset>
+										<directory>
+											${project.basedir}/${felix.filename}/felix-framework-${version.felix}
+										</directory>
+										<outputDirectory>${env.SHARK_HOME}/${felix.dir}</outputDirectory>
+									</fileset>
+								</configuration>
+							</execution>
+						</executions>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+		<profile>
+			<id>deploy-felix-config</id>
+			<activation>
+				<property>
+					<name>env.SHARK_HOME</name>
+				</property>
+			</activation>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-resources-plugin</artifactId>
+						<executions>
+							<execution>
+								<id>backup-felix-config-properties</id>
+								<phase>install</phase>
+								<goals>
+									<goal>copy-resources</goal>
+								</goals>
+								<configuration>
+									<resources>
+										<resource>
+											<directory>${env.SHARK_HOME}/${felix.dir}/conf</directory>
+										</resource>
+									</resources>
+									<outputDirectory>${env.SHARK_HOME}/${felix.dir}/conf.bak</outputDirectory>
+								</configuration>
+							</execution>
+							<execution>
+								<id>deploy-felix-start-scripts-and-config</id>
+								<phase>install</phase>
+								<goals>
+									<goal>copy-resources</goal>
+								</goals>
+								<configuration>
+									<resources>
+										<resource>
+											<directory>src/main/resources</directory>
+										</resource>
+									</resources>
+									<outputDirectory>${env.SHARK_HOME}/${felix.dir}</outputDirectory>
+								</configuration>
+							</execution>
+						</executions>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+	</profiles>
+</project>
