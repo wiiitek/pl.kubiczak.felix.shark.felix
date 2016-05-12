@@ -58,6 +58,14 @@
 											<groupId>org.apache.aries.blueprint</groupId>
 											<artifactId>org.apache.aries.blueprint.core</artifactId>
 										</artifactId>
+										<artifactId>
+											<groupId>org.apache.aries.blueprint</groupId>
+											<artifactId>org.apache.aries.blueprint.spring</artifactId>
+										</artifactId>
+										<artifactId>
+											<groupId>org.apache.aries.blueprint</groupId>
+											<artifactId>org.apache.aries.blueprint.spring.extender</artifactId>
+										</artifactId>
 									</artifactItems>
 									<outputDirectory>
 										${env.SHARK_HOME}/${felix.dir}/${bundles.deploy.dir}

@@ -74,6 +74,10 @@
 											<groupId>org.apache.servicemix.bundles</groupId>
 											<artifactId>org.apache.servicemix.bundles.spring-security-core</artifactId>
 										</artifactItem>
+										<artifactItem>
+											<groupId>org.apache.servicemix.bundles</groupId>
+											<artifactId>org.apache.servicemix.bundles.spring-security-config</artifactId>
+										</artifactItem>
 									</artifactItems>
 									<outputDirectory>
 										${env.SHARK_HOME}/${felix.dir}/${bundles.deploy.dir}
