@@ -78,6 +78,18 @@
 											<groupId>org.apache.servicemix.bundles</groupId>
 											<artifactId>org.apache.servicemix.bundles.spring-security-config</artifactId>
 										</artifactItem>
+										<artifactItem>
+											<groupId>org.apache.servicemix.bundles</groupId>
+											<artifactId>org.apache.servicemix.bundles.spring-security-web</artifactId>
+										</artifactItem>
+										<artifactItm>
+											<groupId>org.apache.servicemix.bundles</groupId>
+											<artifactId>org.apache.servicemix.bundles.spring-webmvc</artifactId>
+										</artifactItm>
+										<artifactItm>
+											<groupId>org.apache.servicemix.bundles</groupId>
+											<artifactId>org.apache.servicemix.bundles.spring-context-support</artifactId>
+										</artifactItm>
 									</artifactItems>
 									<outputDirectory>
 										${env.SHARK_HOME}/${felix.dir}/${bundles.deploy.dir}
