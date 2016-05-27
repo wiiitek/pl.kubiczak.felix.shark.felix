@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-		 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
 	<parent>
@@ -41,35 +39,21 @@
 								</goals>
 								<configuration>
 									<artifactItems>
-										<!-- Aries Blueprint -->
+										<!-- Gemini Blueprint -->
 										<artifactId>
-											<groupId>org.apache.aries.blueprint</groupId>
-											<artifactId>org.apache.aries.blueprint.api</artifactId>
+											<groupId>org.eclipse.gemini.blueprint</groupId>
+											<artifactId>gemini-blueprint-core</artifactId>
 										</artifactId>
 										<artifactId>
-											<groupId>org.apache.aries</groupId>
-											<artifactId>org.apache.aries.util</artifactId>
+											<groupId>org.eclipse.gemini.blueprint</groupId>
+											<artifactId>gemini-blueprint-io</artifactId>
 										</artifactId>
 										<artifactId>
-											<groupId>org.apache.aries.proxy</groupId>
-											<artifactId>org.apache.aries.proxy</artifactId>
-										</artifactId>
-										<artifactId>
-											<groupId>org.apache.aries.blueprint</groupId>
-											<artifactId>org.apache.aries.blueprint.core</artifactId>
-										</artifactId>
-										<artifactId>
-											<groupId>org.apache.aries.blueprint</groupId>
-											<artifactId>org.apache.aries.blueprint.spring</artifactId>
-										</artifactId>
-										<artifactId>
-											<groupId>org.apache.aries.blueprint</groupId>
-											<artifactId>org.apache.aries.blueprint.spring.extender</artifactId>
+											<groupId>org.eclipse.gemini.blueprint</groupId>
+											<artifactId>gemini-blueprint-extender</artifactId>
 										</artifactId>
 									</artifactItems>
-									<outputDirectory>
-										${env.SHARK_HOME}/${felix.dir}/${bundles.deploy.dir}
-									</outputDirectory>
+									<outputDirectory>${env.SHARK_HOME}/${felix.dir}/${bundles.deploy.dir}</outputDirectory>
 									<prependGroupId>true</prependGroupId>
 								</configuration>
 							</execution>
