@@ -50,7 +50,7 @@
 			<dependency>
 				<groupId>pl.kubiczak.felix.shark</groupId>
 				<artifactId>pl.kubiczak.felix.shark.dependencies</artifactId>
-				<version>1.5-SNAPSHOT</version>
+				<version>1.5</version>
 				<type>pom</type>
 				<scope>import</scope>
 			</dependency>
