@@ -5,7 +5,7 @@
 	<parent>
 		<artifactId>pl.kubiczak.felix.shark.parent</artifactId>
 		<groupId>pl.kubiczak.felix.shark</groupId>
-		<version>1.4</version>
+		<version>1.5</version>
 		<relativePath>../pl.kubiczak.felix.shark.parent/pom.xml</relativePath>
 	</parent>
 
