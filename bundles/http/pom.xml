@@ -43,7 +43,6 @@
 											<groupId>org.apache.felix</groupId>
 											<artifactId>org.apache.felix.http.jetty</artifactId>
 										</artifactItem>
-
 									</artifactItems>
 									<outputDirectory>
 										${env.SHARK_HOME}/${felix.dir}/${bundles.deploy.dir}

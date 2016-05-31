@@ -59,11 +59,6 @@
 					<name>env.SHARK_HOME</name>
 				</property>
 			</activation>
-			<build>
-				<plugins>
-
-				</plugins>
-			</build>
 		</profile>
 	</profiles>
 </project>
