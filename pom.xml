@@ -1,41 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
 	<parent>
-		<artifactId>pl.kubiczak.felix.shark.parent</artifactId>
+		<artifactId>parent</artifactId>
 		<groupId>pl.kubiczak.felix.shark</groupId>
-		<version>1.5</version>
-		<relativePath>../pl.kubiczak.felix.shark.parent/pom.xml</relativePath>
+		<version>1.6-SNAPSHOT</version>
+		<relativePath>../parent/pom.xml</relativePath>
 	</parent>
 
-	<artifactId>pl.kubiczak.felix.shark.felix</artifactId>
-	<version>1.6-SNAPSHOT</version>
+	<artifactId>felix</artifactId>
 	<packaging>pom</packaging>
 
 	<name>Shark: Felix</name>
-	<url>http://site.kubiczak.pl/${project.artifactId}</url>
+	<url>http://shark.kubiczak.pl/felix</url>
 
 	<modules>
 		<module>framework</module>
 		<module>bundles</module>
 	</modules>
 
+	<!-- Needed as parent module is not a sup-module -->
 	<scm>
-		<connection>scm:git:https://github.com/wiiitek/${project.artifactId}.git</connection>
-		<developerConnection>scm:git:git@github.com:wiiitek/${project.artifactId}.git</developerConnection>
-		<tag>HEAD</tag>
-		<url>https://github.com/wiiitek/${project.artifactId}</url>
+		<connection>scm:git:https://github.com/wiiitek/pl.kubiczak.felix.shark.felix.git</connection>
+		<developerConnection>scm:git:git@github.com:wiiitek/pl.kubiczak.felix.shark.felix.git</developerConnection>
+		<url>https://github.com/wiiitek/pl.kubiczak.felix.shark.felix/tree/${project.scm.tag}</url>
 	</scm>
-
 	<distributionManagement>
-		<repository>
-			<id>ftp.maven.kubiczak.pl</id>
-			<url>ftp://maven.kubiczak.pl</url>
-		</repository>
 		<site>
-			<id>ftp.site.kubiczak.pl</id>
-			<url>ftp://site.kubiczak.pl/${project.artifactId}</url>
+			<id>ftp.shark.kubiczak.pl</id>
+			<url>ftp://shark.kubiczak.pl/felix</url>
 		</site>
 	</distributionManagement>
 
@@ -49,48 +43,15 @@
 		<dependencies>
 			<dependency>
 				<groupId>pl.kubiczak.felix.shark</groupId>
-				<artifactId>pl.kubiczak.felix.shark.dependencies</artifactId>
-				<version>1.5</version>
+				<artifactId>dependencies</artifactId>
+				<version>1.6-SNAPSHOT</version>
 				<type>pom</type>
 				<scope>import</scope>
 			</dependency>
 		</dependencies>
 	</dependencyManagement>
 
-	<repositories>
-		<repository>
-			<id>maven.kubiczak.pl</id>
-			<url>http://maven.kubiczak.pl</url>
-		</repository>
-	</repositories>
-
-	<build>
-		<extensions>
-			<extension>
-				<groupId>org.apache.maven.wagon</groupId>
-				<artifactId>wagon-ftp</artifactId>
-			</extension>
-		</extensions>
-
-		<plugins>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-resources-plugin</artifactId>
-			</plugin>
-		</plugins>
-	</build>
-
-	<reporting>
-		<plugins>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-project-info-reports-plugin</artifactId>
-			</plugin>
-		</plugins>
-	</reporting>
-
 	<profiles>
-
 		<profile>
 			<id>download-amdatu-bundles</id>
 			<activation>
