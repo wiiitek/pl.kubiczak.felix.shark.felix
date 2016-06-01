@@ -1,14 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+		 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
 	<parent>
 		<artifactId>parent</artifactId>
 		<groupId>pl.kubiczak.felix.shark</groupId>
 		<version>1.6-SNAPSHOT</version>
-		<relativePath>../parent/pom.xml</relativePath>
 	</parent>
 
+	<groupId>pl.kubiczak.felix.shark.felix</groupId>
 	<artifactId>felix</artifactId>
 	<packaging>pom</packaging>
 
@@ -16,8 +18,14 @@
 	<url>http://shark.kubiczak.pl/felix</url>
 
 	<modules>
-		<module>framework</module>
-		<module>bundles</module>
+		<module>felix.framework</module>
+		<module>felix.bundles.osgi</module>
+		<module>felix.bundles.fileinstall</module>
+		<module>felix.bundles.common</module>
+		<module>felix.bundles.http</module>
+		<module>felix.bundles.webconsole</module>
+		<module>felix.bundles.blueprint</module>
+		<module>felix.bundles.spring</module>
 	</modules>
 
 	<!-- Needed as parent module is not a sup-module -->

@@ -1,23 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+		 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
 	<parent>
-		<artifactId>pl.kubiczak.felix.shark.felix.bundles</artifactId>
-		<groupId>pl.kubiczak.felix.shark</groupId>
+		<artifactId>felix</artifactId>
+		<groupId>pl.kubiczak.felix.shark.felix</groupId>
 		<version>1.6-SNAPSHOT</version>
 	</parent>
 
-	<artifactId>pl.kubiczak.felix.shark.felix.bundles.common</artifactId>
+	<artifactId>felix.bundles.osgi</artifactId>
 	<packaging>pom</packaging>
 
-	<name>Shark: Felix: Bundles: Common</name>
-	<url>http://site.kubiczak.pl/${project.artifactId}</url>
-
+	<name>Shark: Felix: Bundles: OSGI</name>
 
 	<profiles>
 		<profile>
-			<id>deploy-common-bundles</id>
+			<id>deploy-osgi-bundles</id>
 			<activation>
 				<property>
 					<name>env.SHARK_HOME</name>
@@ -36,9 +36,19 @@
 								</goals>
 								<configuration>
 									<artifactItems>
+										<!-- Declarative Services (SCR) -->
 										<artifactId>
-											<groupId>org.apache.commons</groupId>
-											<artifactId>commons-lang3</artifactId>
+											<groupId>org.apache.felix</groupId>
+											<artifactId>org.apache.felix.scr</artifactId>
+										</artifactId>
+										<!-- Dependency Management -->
+										<artifactId>
+											<groupId>org.apache.felix</groupId>
+											<artifactId>org.apache.felix.metatype</artifactId>
+										</artifactId>
+										<artifactId>
+											<groupId>org.apache.felix</groupId>
+											<artifactId>org.apache.felix.dependencymanager</artifactId>
 										</artifactId>
 									</artifactItems>
 									<outputDirectory>
@@ -53,5 +63,4 @@
 			</build>
 		</profile>
 	</profiles>
-
 </project>
