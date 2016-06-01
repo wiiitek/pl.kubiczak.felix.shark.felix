@@ -6,7 +6,7 @@
 
 	<parent>
 		<artifactId>felix</artifactId>
-		<groupId>pl.kubiczak.felix.shark.felix</groupId>
+		<groupId>pl.kubiczak.felix.shark</groupId>
 		<version>1.6-SNAPSHOT</version>
 	</parent>
 

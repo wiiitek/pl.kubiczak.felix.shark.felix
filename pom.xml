@@ -10,7 +10,6 @@
 		<version>1.6-SNAPSHOT</version>
 	</parent>
 
-	<groupId>pl.kubiczak.felix.shark.felix</groupId>
 	<artifactId>felix</artifactId>
 	<packaging>pom</packaging>
 
