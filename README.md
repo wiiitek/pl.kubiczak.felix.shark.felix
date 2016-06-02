@@ -8,9 +8,9 @@ pl.kubiczak.felix.shark.felix
 Downloads [Felix OSGI framework][felix-framework] and unzips it
 into the folder provided by `SHARK_HOME` environment variable (if it is set).
 
-Project site available at [http://site.kubiczak.pl/][project-site]
+Project site available at [https://shark.kubiczak.pl/felix/][project-site]
 
-Maven artifacts at [http://maven.kubiczak.pl/][custom-maven-repo]
+Maven artifacts at [http://maven.kubiczak.pl/pl/kubiczak/felix/shark/][custom-maven-repo]
 
 
 Setup on windows
@@ -44,6 +44,6 @@ License
 [Attribution-NonCommercial 4.0 International][license]
 
 [license]: http://creativecommons.org/licenses/by-nc/4.0/
-[project-site]: http://site.kubiczak.pl/
-[custom-maven-repo]: http://maven.kubiczak.pl/
+[project-site]: https://shark.kubiczak.pl/felix/
+[custom-maven-repo]: http://maven.kubiczak.pl/pl/kubiczak/felix/shark/
 [felix-framework]: http://felix.apache.org/
