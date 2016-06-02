@@ -2,12 +2,16 @@
 pl.kubiczak.felix.shark.felix
 ==============================
 
+[![Build Status](https://travis-ci.org/wiiitek/pl.kubiczak.felix.shark.felix.svg?branch=master)](https://travis-ci.org/wiiitek/pl.kubiczak.felix.shark.felix)
+
+
 Downloads [Felix OSGI framework][felix-framework] and unzips it
 into the folder provided by `SHARK_HOME` environment variable (if it is set).
 
 Project site available at [http://site.kubiczak.pl/][project-site]
 
 Maven artifacts at [http://maven.kubiczak.pl/][custom-maven-repo]
+
 
 Setup on windows
 ----------------
@@ -19,6 +23,7 @@ D:\pl.kubiczak.felix.shark.felix\> cd D:\shark\felix-framework
 D:\shark\felix-framework\> windows-start.bat
 </pre>
 
+
 Setup on Linux
 --------------
 
@@ -29,6 +34,7 @@ user@machine [/home/user]# cd shark/felix-framework
 user@machine [/home/user/shark/felix-framework]# chmod 744 linux-start.sh
 user@machine [/home/user/shark/felix-framework]# ./linux-start.sh
 </pre>
+
 
 License
 -------
