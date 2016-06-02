@@ -7,10 +7,11 @@
 	<parent>
 		<artifactId>parent</artifactId>
 		<groupId>pl.kubiczak.felix.shark</groupId>
-		<version>1.6-SNAPSHOT</version>
+		<version>1.6.1</version>
 	</parent>
 
 	<artifactId>felix</artifactId>
+	<version>1.6-SNAPSHOT</version>
 	<packaging>pom</packaging>
 
 	<name>Shark: Felix</name>
@@ -51,7 +52,7 @@
 			<dependency>
 				<groupId>pl.kubiczak.felix.shark</groupId>
 				<artifactId>dependencies</artifactId>
-				<version>1.6-SNAPSHOT</version>
+				<version>1.6</version>
 				<type>pom</type>
 				<scope>import</scope>
 			</dependency>
