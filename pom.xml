@@ -1,81 +1,83 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-	<modelVersion>4.0.0</modelVersion>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
 
-	<parent>
-		<artifactId>parent</artifactId>
-		<groupId>pl.kubiczak.felix.shark</groupId>
-		<version>1.7-SNAPSHOT</version>
-	</parent>
+  <parent>
+    <artifactId>parent</artifactId>
+    <groupId>pl.kubiczak.felix.shark</groupId>
+    <version>1.7-SNAPSHOT</version>
+  </parent>
 
-	<artifactId>felix</artifactId>
-	<version>1.7-SNAPSHOT</version>
-	<packaging>pom</packaging>
+  <artifactId>felix</artifactId>
+  <version>1.7-SNAPSHOT</version>
+  <packaging>pom</packaging>
 
-	<name>Shark: Felix</name>
-	<url>http://shark.kubiczak.pl/felix</url>
+  <name>Shark: Felix</name>
+  <url>http://shark.kubiczak.pl/felix</url>
 
-	<modules>
-		<module>felix.bundles.blueprint</module>
-		<module>felix.bundles.common</module>
-		<module>felix.bundles.fileinstall</module>
-		<module>felix.bundles.http</module>
-		<module>felix.bundles.osgi</module>
-		<module>felix.bundles.spring</module>
-		<module>felix.bundles.webconsole</module>
-		<module>felix.framework</module>
-	</modules>
+  <modules>
+    <module>felix.bundles.blueprint</module>
+    <module>felix.bundles.common</module>
+    <module>felix.bundles.fileinstall</module>
+    <module>felix.bundles.http</module>
+    <module>felix.bundles.osgi</module>
+    <module>felix.bundles.spring</module>
+    <module>felix.bundles.webconsole</module>
+    <module>felix.framework</module>
+  </modules>
 
-	<!-- Needed as parent module is not a sup-module -->
-	<scm>
-		<connection>scm:git:https://github.com/wiiitek/pl.kubiczak.felix.shark.felix.git</connection>
-		<developerConnection>scm:git:git@github.com:wiiitek/pl.kubiczak.felix.shark.felix.git</developerConnection>
-		<tag>HEAD</tag>
-		<url>https://github.com/wiiitek/pl.kubiczak.felix.shark.felix/tree/${project.scm.tag}</url>
-	</scm>
-	<distributionManagement>
-		<site>
-			<id>ftp.shark.kubiczak.pl</id>
-			<url>ftp://shark.kubiczak.pl/felix</url>
-		</site>
-	</distributionManagement>
+  <!-- Needed as parent module is not a sup-module -->
+  <scm>
+    <connection>scm:git:https://github.com/wiiitek/pl.kubiczak.felix.shark.felix.git</connection>
+    <developerConnection>scm:git:git@github.com:wiiitek/pl.kubiczak.felix.shark.felix.git</developerConnection>
+    <tag>HEAD</tag>
+    <url>https://github.com/wiiitek/pl.kubiczak.felix.shark.felix/tree/${project.scm.tag}</url>
+  </scm>
+  <distributionManagement>
+    <site>
+      <id>ftp.shark.kubiczak.pl</id>
+      <url>ftp://shark.kubiczak.pl/felix</url>
+    </site>
+  </distributionManagement>
 
-	<properties>
-		<amdatu.repository>http://repository.amdatu.org/release</amdatu.repository>
+  <properties>
+    <amdatu.repository>http://repository.amdatu.org/release</amdatu.repository>
 
-		<bundles.deploy.dir>bundle</bundles.deploy.dir>
-	</properties>
+    <bundles.deploy.dir>bundle</bundles.deploy.dir>
+  </properties>
 
-	<dependencyManagement>
-		<dependencies>
-			<dependency>
-				<groupId>pl.kubiczak.felix.shark</groupId>
-				<artifactId>dependencies</artifactId>
-				<version>1.6</version>
-				<type>pom</type>
-				<scope>import</scope>
-			</dependency>
-		</dependencies>
-	</dependencyManagement>
+  <dependencyManagement>
+    <dependencies>
+      <dependency>
+        <groupId>pl.kubiczak.felix.shark</groupId>
+        <artifactId>dependencies</artifactId>
+        <version>1.6</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
 
-	<repositories>
-		<repository>
-			<snapshots>
-				<enabled>false</enabled>
-			</snapshots>
-			<id>maven.kubiczak.pl</id>
-			<url>http://maven.kubiczak.pl</url>
-		</repository>
-	</repositories>
+  <repositories>
+    <repository>
+      <snapshots>
+        <enabled>false</enabled>
+      </snapshots>
+      <id>maven.kubiczak.pl</id>
+      <url>http://maven.kubiczak.pl</url>
+    </repository>
+  </repositories>
 
-	<profiles>
-		<profile>
-			<id>download-amdatu-bundles</id>
-			<activation>
-				<property>
-					<name>env.SHARK_HOME</name>
-				</property>
-			</activation>
-		</profile>
-	</profiles>
+  <profiles>
+    <profile>
+      <id>download-amdatu-bundles</id>
+      <activation>
+        <property>
+          <name>env.SHARK_HOME</name>
+        </property>
+      </activation>
+    </profile>
+  </profiles>
 </project>
