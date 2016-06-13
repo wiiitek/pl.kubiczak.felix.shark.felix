@@ -1,0 +1,15 @@
+# downloaded felix distribution
+/felix.framework/org.apache.felix.main.distribution-5.4.0.zip
+
+# maven output
+target
+
+# IntelliJ files
+/.idea
+*.iml
+
+# Eclipse files
+.project
+.classpath
+.settings
+
