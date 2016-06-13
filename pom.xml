@@ -16,14 +16,14 @@
 	<url>http://shark.kubiczak.pl/felix</url>
 
 	<modules>
-		<module>felix.framework</module>
-		<module>felix.bundles.osgi</module>
-		<module>felix.bundles.fileinstall</module>
-		<module>felix.bundles.common</module>
-		<module>felix.bundles.http</module>
-		<module>felix.bundles.webconsole</module>
 		<module>felix.bundles.blueprint</module>
+		<module>felix.bundles.common</module>
+		<module>felix.bundles.fileinstall</module>
+		<module>felix.bundles.http</module>
+		<module>felix.bundles.osgi</module>
 		<module>felix.bundles.spring</module>
+		<module>felix.bundles.webconsole</module>
+		<module>felix.framework</module>
 	</modules>
 
 	<!-- Needed as parent module is not a sup-module -->
