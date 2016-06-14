@@ -75,15 +75,4 @@
       <url>http://maven.kubiczak.pl</url>
     </repository>
   </repositories>
-
-  <profiles>
-    <profile>
-      <id>download-amdatu-bundles</id>
-      <activation>
-        <property>
-          <name>env.SHARK_HOME</name>
-        </property>
-      </activation>
-    </profile>
-  </profiles>
 </project>
