@@ -14,6 +14,7 @@
   <packaging>pom</packaging>
 
   <name>Shark: Felix: Bundles: Fileinstall</name>
+  <description>Provides bundles and configuration for automatic bundles installation/update.</description>
 
   <profiles>
     <profile>

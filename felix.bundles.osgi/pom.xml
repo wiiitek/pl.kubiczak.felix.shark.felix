@@ -14,6 +14,7 @@
   <packaging>pom</packaging>
 
   <name>Shark: Felix: Bundles: OSGI</name>
+  <description>Downloads and deploys base bundles required by OSGI framework.</description>
 
   <profiles>
     <profile>

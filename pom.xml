@@ -15,6 +15,12 @@
   <packaging>pom</packaging>
 
   <name>Shark: Felix</name>
+  <description>
+    Maven module for preparing OSGI container with proper configuration and all required bundles.
+    The responsibility of different bundles groups is distributed among submodules.
+    Felix framework, configuration and required bundles are deployed if environment variable SHARK_HOME is present.
+    This variable should point to existing directory.
+  </description>
   <url>http://shark.kubiczak.pl/felix</url>
 
   <modules>

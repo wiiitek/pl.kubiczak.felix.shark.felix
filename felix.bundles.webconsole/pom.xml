@@ -14,7 +14,7 @@
   <packaging>bundle</packaging>
 
   <name>Shark: Felix: Bundles: Webconsole</name>
-  <url>http://site.kubiczak.pl/${project.artifactId}</url>
+  <description>Creates and deploys fragment bundle for Felix Webconsole branding.</description>
 
   <build>
     <finalName>org.apache.felix.org.apache.felix.webconsole-shark.felix.branding-${project.version}</finalName>

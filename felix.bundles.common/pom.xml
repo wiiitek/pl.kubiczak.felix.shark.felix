@@ -14,6 +14,7 @@
   <packaging>pom</packaging>
 
   <name>Shark: Felix: Bundles: Common</name>
+  <description>Downloads and deploys common JAVA libraries.</description>
 
   <profiles>
     <profile>

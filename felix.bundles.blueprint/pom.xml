@@ -14,6 +14,7 @@
   <packaging>pom</packaging>
 
   <name>Shark: Felix: Bundles: Blueprint</name>
+  <description>Downloads and deploys bundles for Blueprint support.</description>
 
   <properties>
     <bundles.deploy.dir>load/level-10-ioc</bundles.deploy.dir>
@@ -64,5 +65,4 @@
       </build>
     </profile>
   </profiles>
-
 </project>

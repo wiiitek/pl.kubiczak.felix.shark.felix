@@ -14,6 +14,7 @@
   <packaging>pom</packaging>
 
   <name>Shark: Felix: Framework</name>
+  <description>Downloads Felix OSGI framework into project base dir.</description>
 
   <properties>
     <felix.filename>org.apache.felix.main.distribution-${version.felix}.zip</felix.filename>
@@ -25,10 +26,10 @@
       <activation>
         <file>
           <!--
-						if EL is used then property needs to be declared in current pom.xml
-						but we would rather have ${version.felix} defined in parent pom.xml
-						that's why we are using filename with hardcoded version here:
-					-->
+            if EL is used then property needs to be declared in current pom.xml
+            but we would rather have ${version.felix} defined in parent pom.xml
+            that's why we are using filename with hardcoded version here:
+          -->
           <missing>${basedir}/org.apache.felix.main.distribution-5.4.0.zip</missing>
         </file>
       </activation>
