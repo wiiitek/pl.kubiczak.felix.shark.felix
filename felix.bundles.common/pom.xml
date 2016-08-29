@@ -39,6 +39,19 @@
                       <groupId>org.apache.commons</groupId>
                       <artifactId>commons-lang3</artifactId>
                     </artifactId>
+                    <!-- HTTP -->
+                    <artifactId>
+                      <groupId>org.apache.httpcomponents</groupId>
+                      <artifactId>httpclient-osgi</artifactId>
+                    </artifactId>
+                    <artifactId>
+                      <groupId>org.apache.httpcomponents</groupId>
+                      <artifactId>httpcore-osgi</artifactId>
+                    </artifactId>
+                    <artifactItem>
+                      <groupId>commons-codec</groupId>
+                      <artifactId>commons-codec</artifactId>
+                    </artifactItem>
                   </artifactItems>
                   <outputDirectory>${env.SHARK_HOME}/${felix.dir}/${bundles.deploy.dir}</outputDirectory>
                   <prependGroupId>true</prependGroupId>
