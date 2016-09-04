@@ -9,7 +9,7 @@
   </parent>
 
   <artifactId>felix</artifactId>
-  <version>1.8-SNAPSHOT</version>
+  <version>1.8</version>
   <packaging>pom</packaging>
 
   <name>Shark: Felix</name>
@@ -36,7 +36,7 @@
   <scm>
     <connection>scm:git:https://github.com/wiiitek/pl.kubiczak.felix.shark.felix.git</connection>
     <developerConnection>scm:git:git@github.com:wiiitek/pl.kubiczak.felix.shark.felix.git</developerConnection>
-    <tag>HEAD</tag>
+    <tag>1.8</tag>
     <url>https://github.com/wiiitek/pl.kubiczak.felix.shark.felix/tree/${project.scm.tag}</url>
   </scm>
   <distributionManagement>
