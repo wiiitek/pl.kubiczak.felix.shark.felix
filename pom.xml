@@ -26,7 +26,6 @@
     <module>felix.bundles.common</module>
     <module>felix.bundles.fileinstall</module>
     <module>felix.bundles.http</module>
-    <module>felix.bundles.osgi</module>
     <module>felix.bundles.spring</module>
     <module>felix.bundles.webconsole</module>
     <module>felix.framework</module>
