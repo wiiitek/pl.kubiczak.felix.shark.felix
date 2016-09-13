@@ -14,6 +14,10 @@
   <name>Shark: Felix: Bundles: HTTP</name>
   <description>Downloads and deploys bundles for HTTP support in OSGI.</description>
 
+  <properties>
+    <bundles.deploy.dir>load/level-05-http</bundles.deploy.dir>
+  </properties>
+
   <profiles>
     <profile>
       <id>deploy-http-bundles</id>
@@ -35,6 +39,7 @@
                 </goals>
                 <configuration>
                   <artifactItems>
+                    <!-- HTTP service -->
                     <artifactItem>
                       <groupId>org.apache.felix</groupId>
                       <artifactId>org.apache.felix.http.servlet-api</artifactId>
@@ -43,6 +48,16 @@
                       <groupId>org.apache.felix</groupId>
                       <artifactId>org.apache.felix.http.jetty</artifactId>
                     </artifactItem>
+
+                    <!-- HTTP client -->
+                    <artifactId>
+                      <groupId>org.apache.httpcomponents</groupId>
+                      <artifactId>httpclient-osgi</artifactId>
+                    </artifactId>
+                    <artifactId>
+                      <groupId>org.apache.httpcomponents</groupId>
+                      <artifactId>httpcore-osgi</artifactId>
+                    </artifactId>
                   </artifactItems>
                   <outputDirectory>${env.SHARK_HOME}/${felix.dir}/${bundles.deploy.dir}</outputDirectory>
                   <prependGroupId>true</prependGroupId>
