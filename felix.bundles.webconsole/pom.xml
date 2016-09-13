@@ -14,6 +14,10 @@
   <name>Shark: Felix: Bundles: Webconsole</name>
   <description>Creates and deploys fragment bundle for Felix Webconsole branding.</description>
 
+  <properties>
+    <bundles.deploy.dir>load/level-07-webconsole</bundles.deploy.dir>
+  </properties>
+
   <build>
     <finalName>org.apache.felix.org.apache.felix.webconsole-shark.felix.branding-${project.version}</finalName>
     <plugins>
