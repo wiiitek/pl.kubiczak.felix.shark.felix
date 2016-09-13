@@ -55,6 +55,13 @@
                 </goals>
                 <configuration>
                   <artifactItems>
+                    <!-- Fileinstall -->
+                    <artifactItem>
+                      <groupId>org.apache.felix</groupId>
+                      <artifactId>org.apache.felix.fileinstall</artifactId>
+                    </artifactItem>
+
+                    <!-- Fileinstal dependencies -->
                     <artifactItem>
                       <groupId>org.apache.felix</groupId>
                       <artifactId>org.apache.felix.configadmin</artifactId>
@@ -63,10 +70,21 @@
                       <groupId>org.apache.felix</groupId>
                       <artifactId>org.apache.felix.eventadmin</artifactId>
                     </artifactItem>
-                    <artifactItem>
+                    <artifactId>
                       <groupId>org.apache.felix</groupId>
-                      <artifactId>org.apache.felix.fileinstall</artifactId>
-                    </artifactItem>
+                      <artifactId>org.apache.felix.metatype</artifactId>
+                    </artifactId>
+
+                    <!-- Some other Felix bundles -->
+                    <artifactId>
+                      <groupId>org.apache.felix</groupId>
+                      <artifactId>org.apache.felix.dependencymanager</artifactId>
+                    </artifactId>
+                    <!-- Declarative Services (SCR) -->
+                    <artifactId>
+                      <groupId>org.apache.felix</groupId>
+                      <artifactId>org.apache.felix.scr</artifactId>
+                    </artifactId>
                   </artifactItems>
                   <outputDirectory>${env.SHARK_HOME}/${felix.dir}/${bundles.deploy.dir}</outputDirectory>
                   <prependGroupId>true</prependGroupId>
