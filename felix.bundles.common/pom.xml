@@ -47,10 +47,6 @@
                       <groupId>commons-codec</groupId>
                       <artifactId>commons-codec</artifactId>
                     </artifactItem>
-                    <artifactItem>
-                      <groupId>commons-io</groupId>
-                      <artifactId>commons-io</artifactId>
-                    </artifactItem>
                   </artifactItems>
                   <outputDirectory>${env.SHARK_HOME}/${felix.dir}/${bundles.deploy.dir}</outputDirectory>
                   <prependGroupId>true</prependGroupId>
