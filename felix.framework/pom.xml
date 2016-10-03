@@ -28,7 +28,7 @@
             but we would rather have ${version.felix} defined in parent pom.xml
             that's why we are using filename with hardcoded version here:
           -->
-          <missing>${basedir}/org.apache.felix.main.distribution-5.4.0.zip</missing>
+          <missing>${basedir}/org.apache.felix.main.distribution-5.6.0.zip</missing>
         </file>
       </activation>
       <build>
