@@ -43,7 +43,7 @@
                   <goal>download-single</goal>
                 </goals>
                 <configuration>
-                  <url>${felix.mirror}/felix</url>
+                  <url>${felix.mirror}/${version.felix}</url>
                   <fromFile>${felix.filename}</fromFile>
                   <toDir>${project.basedir}</toDir>
                 </configuration>
