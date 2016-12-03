@@ -16,6 +16,12 @@
 
   <properties>
     <felix.filename>org.apache.felix.main.distribution-${version.felix}.zip</felix.filename>
+
+    <!--
+      Can NOT use variable here for profile activation on file missing.
+      This is probably a Maven bug.
+    -->
+    <felix.config.dir>felix-framework/conf</felix.config.dir>
   </properties>
 
   <profiles>
@@ -84,11 +90,11 @@
       </build>
     </profile>
     <profile>
-      <id>deploy-felix-config</id>
+      <id>backup-felix-config</id>
       <activation>
-        <property>
-          <name>env.SHARK_HOME</name>
-        </property>
+        <file>
+          <missing>${env.SHARK_HOME}/${felix.config.dir}.bak/config.properties</missing>
+        </file>
       </activation>
       <build>
         <plugins>
@@ -105,12 +111,30 @@
                 <configuration>
                   <resources>
                     <resource>
-                      <directory>${env.SHARK_HOME}/${felix.dir}/conf</directory>
+                      <directory>${env.SHARK_HOME}/${felix.config.dir}</directory>
                     </resource>
                   </resources>
-                  <outputDirectory>${env.SHARK_HOME}/${felix.dir}/conf.bak</outputDirectory>
+                  <outputDirectory>${env.SHARK_HOME}/${felix.config.dir}.bak</outputDirectory>
                 </configuration>
               </execution>
+            </executions>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+    <profile>
+      <id>deploy-felix-config</id>
+      <activation>
+        <property>
+          <name>env.SHARK_HOME</name>
+        </property>
+      </activation>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-resources-plugin</artifactId>
+            <executions>
               <execution>
                 <id>deploy-felix-start-scripts-and-config</id>
                 <phase>install</phase>
@@ -124,6 +148,7 @@
                     </resource>
                   </resources>
                   <outputDirectory>${env.SHARK_HOME}/${felix.dir}</outputDirectory>
+                  <overwrite>true</overwrite>
                 </configuration>
               </execution>
             </executions>
