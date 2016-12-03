@@ -1,6 +1,6 @@
 #!/bin/bash
 
-JAVA_IO_TMPDIR=./tmp/io_tmp
+JAVA_IO_TMPDIR=./felix-cache/io_tmp
 
 rm -fr $JAVA_IO_TMPDIR
 
