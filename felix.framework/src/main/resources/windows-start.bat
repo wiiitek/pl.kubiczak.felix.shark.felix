@@ -8,7 +8,7 @@ IF EXIST .\felix-cache\io_tmp (
 
 SET DEBUG_OPTS=-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=30303
 SET LOGGING_OPTS=-Dlogback.configurationFile=./conf/logback-dev.xml
-SET JAVA_OPTS=-Djava.io.tmpdir=./felix-cache/io_tmp
+SET JAVA_OPTS=-Djava.io.tmpdir=./felix-cache/io_tmp -Dfile.encoding=UTF-8
 
 SET PATH=%JAVA_HOME%\bin;%PATH%
 

@@ -6,7 +6,7 @@ rm -fr $JAVA_IO_TMPDIR
 
 DEBUG_OPTS="-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=30303"
 LOGGING_OPTS="-Dlogback.configurationFile=./conf/logback-dev.xml"
-JAVA_OPTS="-Djava.io.tmpdir=$JAVA_IO_TMPDIR"
+JAVA_OPTS="-Djava.io.tmpdir=$JAVA_IO_TMPDIR -Dfile.encoding=UTF-8"
 
 PATH=$JAVA_HOME/bin:$PATH
 
