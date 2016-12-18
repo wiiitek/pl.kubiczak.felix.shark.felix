@@ -80,7 +80,12 @@
                       <groupId>org.apache.felix</groupId>
                       <artifactId>org.apache.felix.dependencymanager</artifactId>
                     </artifactId>
-                    <!-- Declarative Services (SCR) -->
+                    <!--
+                      Declarative Services (SCR)
+                      Provide-Capability: osgi.extender;osgi.extender="osgi.component"
+                      see:
+                      http://blog.vogella.com/2016/06/21/getting-started-with-osgi-declarative-services/
+                    -->
                     <artifactId>
                       <groupId>org.apache.felix</groupId>
                       <artifactId>org.apache.felix.scr</artifactId>
