@@ -51,6 +51,16 @@
                       <groupId>com.google.guava</groupId>
                       <artifactId>guava</artifactId>
                     </artifactItem>
+
+                    <!-- HTTP client -->
+                    <artifactId>
+                      <groupId>org.apache.httpcomponents</groupId>
+                      <artifactId>httpclient-osgi</artifactId>
+                    </artifactId>
+                    <artifactId>
+                      <groupId>org.apache.httpcomponents</groupId>
+                      <artifactId>httpcore-osgi</artifactId>
+                    </artifactId>
                   </artifactItems>
                   <outputDirectory>${env.SHARK_HOME}/${felix.dir}/${bundles.deploy.dir}</outputDirectory>
                   <prependGroupId>true</prependGroupId>
