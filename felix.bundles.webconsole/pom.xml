@@ -34,6 +34,7 @@
             </goals>
             <configuration>
               <instructions>
+                <Bundle-Category>shark</Bundle-Category>
                 <Fragment-Host>org.apache.felix.webconsole</Fragment-Host>
                 <Export-Package>!*</Export-Package>
                 <Bundle-Name>Shark: Webconsole branding</Bundle-Name>
