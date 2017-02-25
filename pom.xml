@@ -38,8 +38,8 @@
   </scm>
   <distributionManagement>
     <site>
-      <id>ftp.shark.kubiczak.pl</id>
-      <url>ftp://shark.kubiczak.pl/felix</url>
+      <id>ftps.shark.kubiczak.pl</id>
+      <url>ftps://shark.kubiczak.pl/felix</url>
     </site>
   </distributionManagement>
 
