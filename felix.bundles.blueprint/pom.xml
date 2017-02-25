@@ -5,7 +5,7 @@
   <parent>
     <artifactId>felix</artifactId>
     <groupId>pl.kubiczak.felix.shark</groupId>
-    <version>1.13</version>
+    <version>1.14-SNAPSHOT</version>
   </parent>
 
   <artifactId>felix.bundles.blueprint</artifactId>
