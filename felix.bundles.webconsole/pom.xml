@@ -84,7 +84,7 @@
       </build>
     </profile>
     <profile>
-      <id>copy-webconsole-bundle</id>
+      <id>copy-webconsole-bundles</id>
       <activation>
         <property>
           <name>env.SHARK_HOME</name>
@@ -103,6 +103,10 @@
                 </goals>
                 <configuration>
                   <artifactItems>
+                    <artifactItem>
+                      <groupId>org.apache.felix</groupId>
+                      <artifactId>org.apache.felix.webconsole.plugins.ds</artifactId>
+                    </artifactItem>
                     <artifactItem>
                       <groupId>org.apache.felix</groupId>
                       <artifactId>org.apache.felix.webconsole</artifactId>

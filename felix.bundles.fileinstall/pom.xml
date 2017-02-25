@@ -81,6 +81,18 @@
                       <artifactId>org.apache.felix.dependencymanager</artifactId>
                     </artifactId>
                     <!--
+                      for new gogo console (felix framework 5.6.2). see also:
+                      https://github.com/jline/jline3/blob/master/demo/jline-gogo.bat
+                    -->
+                    <artifactId>
+                      <groupId>org.fusesource.jansi</groupId>
+                      <artifactId>jansi</artifactId>
+                    </artifactId>
+                    <artifactId>
+                      <groupId>net.java.dev.jna</groupId>
+                      <artifactId>jna</artifactId>
+                    </artifactId>
+                    <!--
                       Declarative Services (SCR)
                       Provide-Capability: osgi.extender;osgi.extender="osgi.component"
                       see:
