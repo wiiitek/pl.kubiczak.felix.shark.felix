@@ -23,10 +23,10 @@ IF EXIST "%TMP_DIR%/bundles" (
 
 SET DEBUG_OPTS=-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=30303
 ECHO debug options: '%DEBUG_OPTS%'
-SET LOGGING_OPTS=-Dlogback.configurationFile=%SHARK_DIR%/conf/logback-dev.xml
-ECHO logging options: '%LOGGING_OPTS%'
 SET JAVA_OPTS=-Djava.io.tmpdir=%TMP_DIR%/io_tmp -Dfile.encoding=UTF-8
 ECHO java options: '%JAVA_OPTS%'
+SET LOGGING_OPTS=-Dlogback.configurationFile=%SHARK_DIR%/conf/logback-dev.xml
+ECHO logging options: '%LOGGING_OPTS%'
 SET FELIX_OPTS=-Dgosh.args=--nointeractive -Dorg.osgi.framework.storage=%TMP_DIR%/bundles
 REM host
 SET FELIX_OPTS=%FELIX_OPTS% -Dorg.apache.felix.http.host=0.0.0.0
@@ -40,7 +40,7 @@ CD "%SHARK_DIR%"
 FOR /f %%i IN ('CD') DO SET PWD=%%i
 ECHO folder changed to: '%PWD%'
 
-SET COMMAND=java %DEBUG_OPTS% %FELIX_OPTS% %LOGGING_OPTS% %JAVA_OPTS% -jar bin/felix.jar
+SET COMMAND=java %DEBUG_OPTS% %JAVA_OPTS% %LOGGING_OPTS% %FELIX_OPTS% -jar bin/felix.jar
 ECHO running: '%COMMAND%'
 
 %COMMAND%
