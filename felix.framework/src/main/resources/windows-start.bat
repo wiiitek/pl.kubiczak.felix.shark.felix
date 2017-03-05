@@ -1,16 +1,23 @@
 @ECHO OFF
-COLOR 08
+
+REM settings
 
 SET SHARK_DIR=%SHARK_HOME%/felix-framework
 SET TMP_DIR=%SHARK_DIR%/felix-cache
+SET LOG_DIR=%SHARK_DIR%/logs
+SET IP=0.0.0.0
+SET PORT=8080
+SET WEBCONSOLE_USERNAME=admin
+SET WEBCONSOLE_PASSWORD=admin
+
+REM end of settings
 
 FOR /f "tokens=2 delims==" %%a IN ('wmic OS Get localdatetime /value') DO SET "dt=%%a"
 SET YYYY=%dt:~0,4%
 SET MM=%dt:~4,2%
 SET DD=%dt:~6,2%
 SET TODAY=%YYYY%-%MM%-%DD%
-
-SET LOG_FILE=%SHARK_DIR%/logs/framework_%TODAY%.log
+SET LOG_FILE=%LOG_DIR%/framework_%TODAY%.log
 
 IF EXIST "%TMP_DIR%/io_tmp" (
 	RMDIR /S /Q "%TMP_DIR%/io_tmp"
@@ -29,11 +36,11 @@ SET LOGGING_OPTS=-Dlogback.configurationFile=%SHARK_DIR%/conf/logback-dev.xml
 ECHO logging options: '%LOGGING_OPTS%'
 SET FELIX_OPTS=-Dgosh.args=--nointeractive -Dorg.osgi.framework.storage=%TMP_DIR%/bundles
 REM host
-SET FELIX_OPTS=%FELIX_OPTS% -Dorg.apache.felix.http.host=0.0.0.0
+SET FELIX_OPTS=%FELIX_OPTS% -Dorg.apache.felix.http.host=%IP%
 REM port
-SET FELIX_OPTS=%FELIX_OPTS% -Dorg.osgi.service.http.port=8080
+SET FELIX_OPTS=%FELIX_OPTS% -Dorg.osgi.service.http.port=%PORT%
 REM webconsole username and password
-SET FELIX_OPTS=%FELIX_OPTS% -Dfelix.webconsole.username=admin -Dfelix.webconsole.password=admin
+SET FELIX_OPTS=%FELIX_OPTS% -Dfelix.webconsole.username=%WEBCONSOLE_USERNAME% -Dfelix.webconsole.password=%WEBCONSOLE_PASSWORD%
 ECHO felix options: '%FELIX_OPTS%'
 
 CD "%SHARK_DIR%"

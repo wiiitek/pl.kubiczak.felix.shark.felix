@@ -1,9 +1,19 @@
 #!/bin/bash
 
+# settings
+
 SHARK_DIR=${SHARK_HOME}/felix-framework
 TMP_DIR=${SHARK_DIR}/felix-cache
+LOG_DIR=${SHARK_DIR}/logs
+IP=0.0.0.0
+PORT=8080
+WEBCONSOLE_USERNAME=admin
+WEBCONSOLE_PASSWORD=admin
+
+# end of settings
+
 TODAY=$(date +"%Y-%m-%d")
-LOG_FILE=${SHARK_DIR}/logs/framework_${TODAY}.log
+LOG_FILE=${LOG_DIR}/framework_${TODAY}.log
 
 rm -fr ${TMP_DIR}/io_tmp
 echo "JAVA io tmp folder deleted"
@@ -18,11 +28,11 @@ LOGGING_OPTS="-Dlogback.configurationFile=${SHARK_DIR}/conf/logback-dev.xml"
 echo "logging options: '${LOGGING_OPTS}'"
 FELIX_OPTS="-Dgosh.args=--nointeractive -Dorg.osgi.framework.storage=${TMP_DIR}/bundles"
 # host
-FELIX_OPTS="${FELIX_OPTS} -Dorg.apache.felix.http.host=0.0.0.0"
+FELIX_OPTS="${FELIX_OPTS} -Dorg.apache.felix.http.host=${IP}"
 # port
-FELIX_OPTS="${FELIX_OPTS} -Dorg.osgi.service.http.port=8080"
+FELIX_OPTS="${FELIX_OPTS} -Dorg.osgi.service.http.port=${PORT}"
 # webconsole username and password
-FELIX_OPTS="${FELIX_OPTS} -Dfelix.webconsole.username=admin -Dfelix.webconsole.password=admin"
+FELIX_OPTS="${FELIX_OPTS} -Dfelix.webconsole.username=${WEBCONSOLE_USERNAME} -Dfelix.webconsole.password=${WEBCONSOLE_PASSWORD}"
 echo "felix options: '${FELIX_OPTS}'"
 
 cd ${SHARK_DIR}
