@@ -36,7 +36,10 @@
               <instructions>
                 <Bundle-Category>shark</Bundle-Category>
                 <Fragment-Host>org.apache.servicemix.bundles.esapi</Fragment-Host>
-                <Export-Package>!*</Export-Package>
+                <!-- for locating ESAPI.properties file -->
+                <Export-Package>esapi</Export-Package>
+                <!-- for importing classes not-found by ESAPI -->
+                <Import-Package>org.apache.commons.fileupload</Import-Package>
                 <Bundle-Name>Shark: Felix: Bundles: OWASP Esapi</Bundle-Name>
               </instructions>
             </configuration>
