@@ -51,6 +51,10 @@
                       <groupId>com.google.guava</groupId>
                       <artifactId>guava</artifactId>
                     </artifactItem>
+                    <artifactItem>
+                      <groupId>com.google.code.gson</groupId>
+                      <artifactId>gson</artifactId>
+                    </artifactItem>
 
                     <!-- HTTP client -->
                     <artifactId>
