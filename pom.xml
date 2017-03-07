@@ -22,6 +22,7 @@
   <modules>
     <module>felix.bundles.blueprint</module>
     <module>felix.bundles.common</module>
+    <module>felix.bundles.esapi</module>
     <module>felix.bundles.fileinstall</module>
     <module>felix.bundles.http</module>
     <module>felix.bundles.spring</module>
@@ -54,7 +55,7 @@
       <dependency>
         <groupId>pl.kubiczak.felix.shark</groupId>
         <artifactId>dependencies</artifactId>
-        <version>1.17</version>
+        <version>1.18-SNAPSHOT</version>
         <type>pom</type>
         <scope>import</scope>
       </dependency>
