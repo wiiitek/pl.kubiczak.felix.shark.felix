@@ -2,6 +2,8 @@
 
 REM settings
 
+SET GMAIL_USERNAME=%SHARK_GMAIL_USERNAME%
+SET GMAIL_PASSWORD=%SHARK_GMAIL_PASSWORD%
 SET SHARK_DIR=%SHARK_HOME%/felix-framework
 SET TMP_DIR=%SHARK_DIR%/felix-cache
 SET LOG_DIR=%SHARK_DIR%/logs
@@ -25,6 +27,9 @@ IF EXIST "%TMP_DIR%/io_tmp" ( RMDIR /S /Q "%TMP_DIR%/io_tmp"
 	ECHO JAVA io tmp folder deleted )
 IF EXIST "%TMP_DIR%/bundles" ( RMDIR /S /Q "%TMP_DIR%/bundles"
 	ECHO Felix bundles cache deleted )
+REM DEL command needs backslash here
+IF EXIST "%LOG_DIR%/default_dev.log" ( DEL /F /Q "%LOG_DIR%\default_dev.log"
+	ECHO Default dev log file deleted )
 
 SET JAVA_OPTS=%DEBUG_OPTS% -Djava.io.tmpdir=%TMP_DIR%/io_tmp -Dfile.encoding=UTF-8
 ECHO java options: '%JAVA_OPTS%'
@@ -38,6 +43,7 @@ SET FELIX_OPTS=%FELIX_OPTS% -Dorg.osgi.service.http.port=%PORT%
 REM webconsole username and password
 SET FELIX_OPTS=%FELIX_OPTS% -Dfelix.webconsole.username=%WEBCONSOLE_USERNAME% -Dfelix.webconsole.password=%WEBCONSOLE_PASSWORD%
 ECHO felix options: '%FELIX_OPTS%'
+SET AUTH_OPTS=-Dshark.gmail.username=%GMAIL_USERNAME% -Dshark.gmail.password=%GMAIL_PASSWORD%
 
 CD "%SHARK_DIR%"
 FOR /f %%i IN ('CD') DO SET PWD=%%i
@@ -46,4 +52,5 @@ ECHO folder changed to: '%PWD%'
 SET COMMAND=java %JAVA_OPTS% %LOGGING_OPTS% %FELIX_OPTS% -jar bin/felix.jar
 ECHO running: '%COMMAND%'
 
+SET COMMAND=java %JAVA_OPTS% %LOGGING_OPTS% %FELIX_OPTS% %AUTH_OPTS% -jar bin/felix.jar
 %COMMAND%

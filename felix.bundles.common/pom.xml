@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
   <parent>
@@ -51,6 +53,18 @@
                       <groupId>com.google.guava</groupId>
                       <artifactId>guava</artifactId>
                     </artifactItem>
+                    <artifactItem>
+                      <groupId>javax.mail</groupId>
+                      <artifactId>mail</artifactId>
+                    </artifactItem>
+                    <artifactItem>
+                      <groupId>com.google.code.gson</groupId>
+                      <artifactId>gson</artifactId>
+                    </artifactItem>
+                    <artifactItem>
+                      <groupId>org.json</groupId>
+                      <artifactId>json</artifactId>
+                    </artifactItem>
 
                     <!-- HTTP client -->
                     <artifactId>
@@ -62,7 +76,8 @@
                       <artifactId>httpcore-osgi</artifactId>
                     </artifactId>
                   </artifactItems>
-                  <outputDirectory>${env.SHARK_HOME}/${felix.dir}/${bundles.deploy.dir}</outputDirectory>
+                  <outputDirectory>${env.SHARK_HOME}/${felix.dir}/${bundles.deploy.dir}
+                  </outputDirectory>
                   <prependGroupId>true</prependGroupId>
                 </configuration>
               </execution>
