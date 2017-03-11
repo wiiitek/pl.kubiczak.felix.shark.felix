@@ -21,6 +21,8 @@ rm -fr ${TMP_DIR}/io_tmp
 echo "JAVA io tmp folder deleted"
 rm -fr ${TMP_DIR}/bundles
 echo "Felix bundles cache deleted"
+rm -fr ${LOG_DIR}/default_dev.log
+echo "Default dev log file deleted"
 
 JAVA_OPTS="${DEBUG_OPTS} -Djava.io.tmpdir=${TMP_DIR}/io_tmp -Dfile.encoding=UTF-8"
 echo "java options: '${JAVA_OPTS}'"

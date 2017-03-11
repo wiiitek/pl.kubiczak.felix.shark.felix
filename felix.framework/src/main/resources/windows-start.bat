@@ -25,6 +25,9 @@ IF EXIST "%TMP_DIR%/io_tmp" ( RMDIR /S /Q "%TMP_DIR%/io_tmp"
 	ECHO JAVA io tmp folder deleted )
 IF EXIST "%TMP_DIR%/bundles" ( RMDIR /S /Q "%TMP_DIR%/bundles"
 	ECHO Felix bundles cache deleted )
+REM DEL command needs backslash here
+IF EXIST "%LOG_DIR%/default_dev.log" ( DEL /F /Q "%LOG_DIR%\default_dev.log"
+	ECHO Default dev log file deleted )
 
 SET JAVA_OPTS=%DEBUG_OPTS% -Djava.io.tmpdir=%TMP_DIR%/io_tmp -Dfile.encoding=UTF-8
 ECHO java options: '%JAVA_OPTS%'
