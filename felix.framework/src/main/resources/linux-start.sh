@@ -2,6 +2,8 @@
 
 # settings
 
+GMAIL_USERNAME=${SHARK_GMAIL_USERNAME}
+GMAIL_PASSWORD=${SHARK_GMAIL_PASSWORD}
 SHARK_DIR=${SHARK_HOME}/felix-framework
 TMP_DIR=${SHARK_DIR}/felix-cache
 LOG_DIR=${SHARK_DIR}/logs
@@ -36,6 +38,7 @@ FELIX_OPTS="${FELIX_OPTS} -Dorg.osgi.service.http.port=${PORT}"
 # webconsole username and password
 FELIX_OPTS="${FELIX_OPTS} -Dfelix.webconsole.username=${WEBCONSOLE_USERNAME} -Dfelix.webconsole.password=${WEBCONSOLE_PASSWORD}"
 echo "felix options: '${FELIX_OPTS}'"
+AUTH_OPTS="-Dshark.gmail.username=${GMAIL_USERNAME} -Dshark.gmail.password=${GMAIL_PASSWORD}"
 
 cd ${SHARK_DIR}
 echo "folder changed to: '$(pwd)'"
@@ -43,6 +46,7 @@ echo "folder changed to: '$(pwd)'"
 COMMAND="java ${JAVA_OPTS} ${LOGGING_OPTS} ${FELIX_OPTS} -jar bin/felix.jar"
 echo "running '${COMMAND}'"
 
+COMMAND="java ${JAVA_OPTS} ${LOGGING_OPTS} ${FELIX_OPTS} ${AUTH_OPTS} -jar bin/felix.jar"
 # running with nohup
 # see
 # https://www.cyberciti.biz/tips/nohup-execute-commands-after-you-exit-from-a-shell-prompt.html
