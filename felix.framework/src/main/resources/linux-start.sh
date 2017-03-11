@@ -45,7 +45,7 @@ echo "folder changed to: '$(pwd)'"
 
 COMMAND="java ${JAVA_OPTS} ${LOGGING_OPTS} ${FELIX_OPTS} -jar bin/felix.jar"
 echo "running '${COMMAND}'"
-
+# overwritten, but we don't echo authentication parameters
 COMMAND="java ${JAVA_OPTS} ${LOGGING_OPTS} ${FELIX_OPTS} ${AUTH_OPTS} -jar bin/felix.jar"
 # running with nohup
 # see

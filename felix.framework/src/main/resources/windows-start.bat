@@ -51,6 +51,6 @@ ECHO folder changed to: '%PWD%'
 
 SET COMMAND=java %JAVA_OPTS% %LOGGING_OPTS% %FELIX_OPTS% -jar bin/felix.jar
 ECHO running: '%COMMAND%'
-
+REM overwritten, but we don't echo authentication parameters
 SET COMMAND=java %JAVA_OPTS% %LOGGING_OPTS% %FELIX_OPTS% %AUTH_OPTS% -jar bin/felix.jar
 %COMMAND%
