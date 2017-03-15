@@ -16,6 +16,7 @@
 
   <properties>
     <bundles.deploy.dir>load/level-07-webconsole</bundles.deploy.dir>
+    <bundles.fragment.deploy.dir>load/level-10-ioc</bundles.fragment.deploy.dir>
   </properties>
 
   <build>
@@ -75,7 +76,7 @@
                       </includes>
                     </resource>
                   </resources>
-                  <outputDirectory>${env.SHARK_HOME}/${felix.dir}/${bundles.deploy.dir}</outputDirectory>
+                  <outputDirectory>${env.SHARK_HOME}/${felix.dir}/${bundles.fragment.deploy.dir}</outputDirectory>
                 </configuration>
               </execution>
             </executions>
