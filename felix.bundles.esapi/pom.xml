@@ -16,7 +16,7 @@
 
   <properties>
     <bundles.deploy.common.dir>load/level-04-common</bundles.deploy.common.dir>
-    <bundles.deploy.servicemix.dir>load/level-06-esapi</bundles.deploy.servicemix.dir>
+    <bundles.deploy.servicemix.dir>load/level-06-a-esapi</bundles.deploy.servicemix.dir>
     <!-- host bundle needs to be active when fragment is installed -->
     <bundles.deploy.esapi.fragment.dir>load/level-07-webconsole</bundles.deploy.esapi.fragment.dir>
   </properties>
