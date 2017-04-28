@@ -15,7 +15,7 @@
   <description>Downloads and deploys common JAVA libraries.</description>
 
   <properties>
-    <bundles.deploy.dir>load/level-04-common</bundles.deploy.dir>
+    <bundles.deploy.dir>load/level-03-common</bundles.deploy.dir>
   </properties>
 
   <profiles>
