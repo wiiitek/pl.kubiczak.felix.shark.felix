@@ -15,7 +15,7 @@
   <description>Creates and deploys fragment bundle for Felix Webconsole branding.</description>
 
   <properties>
-    <bundles.deploy.dir>load/level-07-webconsole</bundles.deploy.dir>
+    <bundles.deploy.dir>load/level-04-webconsole</bundles.deploy.dir>
     <bundles.fragment.deploy.dir>load/level-03-webconsole-fragment</bundles.fragment.deploy.dir>
   </properties>
 
