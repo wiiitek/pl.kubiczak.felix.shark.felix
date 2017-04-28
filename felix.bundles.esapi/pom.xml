@@ -17,7 +17,7 @@
   <properties>
     <bundles.deploy.common.dir>load/level-03-common</bundles.deploy.common.dir>
     <!-- fragment bundle needs to be installed before host -->
-    <bundles.deploy.esapi.fragment.dir>load/level-03-esapi-fragment</bundles.deploy.esapi.fragment.dir>
+    <bundles.deploy.esapi.fragment.dir>load/level-05-esapi-fragment</bundles.deploy.esapi.fragment.dir>
     <bundles.deploy.servicemix.dir>load/level-06-a-esapi</bundles.deploy.servicemix.dir>
   </properties>
 
