@@ -16,7 +16,7 @@
 
   <properties>
     <bundles.deploy.dir>load/level-07-webconsole</bundles.deploy.dir>
-    <bundles.fragment.deploy.dir>load/level-06-d-webconsole-fragment</bundles.fragment.deploy.dir>
+    <bundles.fragment.deploy.dir>load/level-03-webconsole-fragment</bundles.fragment.deploy.dir>
   </properties>
 
   <build>
