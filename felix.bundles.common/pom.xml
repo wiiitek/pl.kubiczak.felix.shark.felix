@@ -52,10 +52,6 @@
                       <artifactId>guava</artifactId>
                     </artifactItem>
                     <artifactItem>
-                      <groupId>javax.mail</groupId>
-                      <artifactId>mail</artifactId>
-                    </artifactItem>
-                    <artifactItem>
                       <groupId>com.google.code.gson</groupId>
                       <artifactId>gson</artifactId>
                     </artifactItem>
