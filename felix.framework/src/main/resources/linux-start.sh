@@ -35,6 +35,12 @@ FELIX_OPTS="-Dgosh.args=--nointeractive -Dorg.osgi.framework.storage=${TMP_DIR}/
 FELIX_OPTS="${FELIX_OPTS} -Dorg.apache.felix.http.host=${IP}"
 # port
 FELIX_OPTS="${FELIX_OPTS} -Dorg.osgi.service.http.port=${PORT}"
+# start level
+FELIX_OPTS="${FELIX_OPTS} -Dorg.osgi.framework.startlevel.beginning=30"
+# cache
+FELIX_OPTS="${FELIX_OPTS} -Dorg.osgi.framework.storage=%TMP_DIR%/bundles"
+# do not save configuration in files
+FELIX_OPTS="${FELIX_OPTS} -Dfelix.fileinstall.enableConfigSave=false"
 # webconsole username and password
 FELIX_OPTS="${FELIX_OPTS} -Dfelix.webconsole.username=${WEBCONSOLE_USERNAME} -Dfelix.webconsole.password=${WEBCONSOLE_PASSWORD}"
 echo "felix options: '${FELIX_OPTS}'"

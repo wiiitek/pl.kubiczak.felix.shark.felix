@@ -35,11 +35,17 @@ SET JAVA_OPTS=%DEBUG_OPTS% -Djava.io.tmpdir=%TMP_DIR%/io_tmp -Dfile.encoding=UTF
 ECHO java options: '%JAVA_OPTS%'
 SET LOGGING_OPTS=-Dlogback.configurationFile=%LOG_CONF_FILE%
 ECHO logging options: '%LOGGING_OPTS%'
-SET FELIX_OPTS=-Dorg.osgi.framework.storage=%TMP_DIR%/bundles
+SET FELIX_OPTS=-Dgosh.args=--nointeractive -Dorg.osgi.framework.storage=%TMP_DIR%/bundles
 REM host
 SET FELIX_OPTS=%FELIX_OPTS% -Dorg.apache.felix.http.host=%IP%
 REM port
 SET FELIX_OPTS=%FELIX_OPTS% -Dorg.osgi.service.http.port=%PORT%
+REM start level
+SET FELIX_OPTS=%FELIX_OPTS% -Dorg.osgi.framework.startlevel.beginning=30
+REM cache
+SET FELIX_OPTS=%FELIX_OPTS% -Dorg.osgi.framework.storage=%TMP_DIR%/bundles
+REM do not save configuration in files
+SET FELIX_OPTS=%FELIX_OPTS% -Dfelix.fileinstall.enableConfigSave=false
 REM webconsole username and password
 SET FELIX_OPTS=%FELIX_OPTS% -Dfelix.webconsole.username=%WEBCONSOLE_USERNAME% -Dfelix.webconsole.password=%WEBCONSOLE_PASSWORD%
 ECHO felix options: '%FELIX_OPTS%'
