@@ -51,18 +51,6 @@
     <bundles.deploy.dir>bundle</bundles.deploy.dir>
   </properties>
 
-  <dependencyManagement>
-    <dependencies>
-      <dependency>
-        <groupId>pl.kubiczak.felix.shark</groupId>
-        <artifactId>dependencies</artifactId>
-        <version>1.27-SNAPSHOT</version>
-        <type>pom</type>
-        <scope>import</scope>
-      </dependency>
-    </dependencies>
-  </dependencyManagement>
-
   <repositories>
     <repository>
       <snapshots>
