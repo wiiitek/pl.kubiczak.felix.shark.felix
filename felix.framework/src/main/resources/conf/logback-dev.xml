@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration scan="true" scanPeriod="2 seconds">
+
+  <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+    <encoder>
+      <pattern>
+        %-5level %msg%n%n
+      </pattern>
+    </encoder>
+  </appender>
+
+  <appender name="FILE_SIMPLE" class="ch.qos.logback.core.FileAppender">
+    <file>logs/default_dev.log</file>
+    <append>true</append>
+    <encoder>
+      <pattern>%d{HH:mm:ss.SSS} %-5level %logger:%L - %msg%n</pattern>
+    </encoder>
+  </appender>
+
+  <appender name="FILE_DEFAULT" class="ch.qos.logback.core.rolling.RollingFileAppender">
+    <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+      <!-- daily rollover. Make sure the path matches the one in the file element or else
+      the rollover logs are placed in the working directory. -->
+      <fileNamePattern>logs/default_dev_%d{yyyy-MM-dd}.log</fileNamePattern>
+      <!-- keep 30 days' worth of history -->
+      <maxHistory>30</maxHistory>
+    </rollingPolicy>
+    <encoder>
+      <charset>UTF-8</charset>
+      <pattern>%d{HH:mm:ss.SSS} %-5level %logger:%L - %msg%n</pattern>
+    </encoder>
+  </appender>
+
+  <appender name="LogbackClassic" class="ch.qos.logback.classic.net.SocketAppender">
+    <RemoteHost>localhost</RemoteHost>
+    <Port>4560</Port>
+    <ReconnectionDelay>170</ReconnectionDelay>
+    <IncludeCallerData>true</IncludeCallerData>
+    <queueSize>200</queueSize>
+  </appender>
+
+  <logger name="pl.kubiczak" level="DEBUG" additivity="false">
+    <appender-ref ref="FILE_SIMPLE"/>
+    <appender-ref ref="FILE_DEFAULT"/>
+  </logger>
+
+  <logger name="javax.mail" level="DEBUG"/>
+  <logger name="org.apache.felix.configadmin" level="DEBUG"/>
+  <logger name="org.apache.felix.fileinstall.3.5.8" level="WARN"/>
+  <logger name="org.glassfish.jersey" level="INFO"/>
+  <logger name="org.owasp" level="DEBUG"/>
+  <logger name="org.springframework.security" level="INFO"/>
+
+
+  <root level="WARN">
+    <appender-ref ref="FILE_SIMPLE"/>
+    <appender-ref ref="FILE_DEFAULT"/>
+  </root>
+
+</configuration>

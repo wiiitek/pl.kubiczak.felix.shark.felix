@@ -5,7 +5,7 @@
   <parent>
     <artifactId>parent</artifactId>
     <groupId>pl.kubiczak.felix.shark</groupId>
-    <version>1.26</version>
+    <version>1.27-SNAPSHOT</version>
   </parent>
 
   <artifactId>felix</artifactId>
@@ -25,6 +25,7 @@
     <module>felix.bundles.esapi</module>
     <module>felix.bundles.fileinstall</module>
     <module>felix.bundles.http</module>
+    <module>felix.bundles.logging</module>
     <module>felix.bundles.spring</module>
     <module>felix.bundles.webconsole</module>
     <module>felix.framework</module>
@@ -55,7 +56,7 @@
       <dependency>
         <groupId>pl.kubiczak.felix.shark</groupId>
         <artifactId>dependencies</artifactId>
-        <version>1.26</version>
+        <version>1.27-SNAPSHOT</version>
         <type>pom</type>
         <scope>import</scope>
       </dependency>
