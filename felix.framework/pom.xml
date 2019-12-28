@@ -36,7 +36,7 @@
             but we would rather have ${version.felix} defined in parent pom.xml
             that's why we are using filename with hardcoded version here:
           -->
-          <missing>${basedir}/org.apache.felix.main.distribution-5.6.10.zip</missing>
+          <missing>${basedir}/org.apache.felix.main.distribution-6.0.3.zip</missing>
         </file>
       </activation>
       <build>
@@ -99,14 +99,6 @@
                 </goals>
                 <configuration>
                   <artifactItems>
-                    <!--
-                      for new gogo console (felix framework 5.6.2). see also:
-                      https://github.com/jline/jline3/blob/master/demo/jline-gogo.bat
-                    -->
-                    <artifactId>
-                      <groupId>org.fusesource.jansi</groupId>
-                      <artifactId>jansi</artifactId>
-                    </artifactId>
                     <artifactId>
                       <groupId>net.java.dev.jna</groupId>
                       <artifactId>jna</artifactId>
