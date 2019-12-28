@@ -70,26 +70,34 @@
                       <groupId>org.apache.felix</groupId>
                       <artifactId>org.apache.felix.eventadmin</artifactId>
                     </artifactItem>
-                    <artifactId>
+                    <artifactItem>
                       <groupId>org.apache.felix</groupId>
                       <artifactId>org.apache.felix.metatype</artifactId>
-                    </artifactId>
+                    </artifactItem>
 
                     <!-- Some other Felix bundles -->
-                    <artifactId>
+                    <artifactItem>
                       <groupId>org.apache.felix</groupId>
                       <artifactId>org.apache.felix.dependencymanager</artifactId>
-                    </artifactId>
+                    </artifactItem>
                     <!--
                       Declarative Services (SCR)
                       Provide-Capability: osgi.extender;osgi.extender="osgi.component"
                       see:
                       http://blog.vogella.com/2016/06/21/getting-started-with-osgi-declarative-services/
                     -->
-                    <artifactId>
+                    <artifactItem>
                       <groupId>org.apache.felix</groupId>
                       <artifactId>org.apache.felix.scr</artifactId>
-                    </artifactId>
+                    </artifactItem>
+                    <artifactItem>
+                      <groupId>org.osgi</groupId>
+                      <artifactId>org.osgi.util.promise</artifactId>
+                    </artifactItem>
+                    <artifactItem>
+                      <groupId>org.osgi</groupId>
+                      <artifactId>org.osgi.util.function</artifactId>
+                    </artifactItem>
                   </artifactItems>
                   <outputDirectory>${env.SHARK_HOME}/${felix.dir}/${bundles.deploy.dir}</outputDirectory>
                   <prependGroupId>true</prependGroupId>
